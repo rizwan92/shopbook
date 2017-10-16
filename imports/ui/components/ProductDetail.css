@@ -1,0 +1,34 @@
+@import "https://fonts.googleapis.com/css?family=Baloo+Tamma|Raleway|Lato";
+.singleproduct-crousel{
+  display: flex;
+  flex:1;
+  border-radius: 5px;
+}
+.singleproduct-crousel:hover{
+}
+
+.singleproduct-container{
+  font-family: "Baloo Tamma";
+  margin-top: 20px;
+  padding: 20px;
+
+}
+
+.singleproduct-container-name{
+  font-size: 3em;
+  color: #d75229;
+}
+.singleproduct-container-sellprice{
+font-size: 2em;
+color: #5dac48;
+
+}
+.singleproduct-container-discount{
+  font-size: 2em;
+}
+.singleproduct-container-tax{
+  font-size: 2em;
+}
+.singleproduct-container-stock{
+  font-size: 2em;
+}

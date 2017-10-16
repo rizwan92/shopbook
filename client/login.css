@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+
+.belowchange{
+  color: blue;
+  font-weight: 600;
+  cursor: pointer;
+}
+.login-container{
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  border-radius: 10px;
+}
+
+label{
+  font-weight: bold;
+}
+
+.container{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  -webkit-transition: 0.3s ease all;
+  transition: 0.3s ease all;
+  width: 350px;
+  max-width: 500px;
+  min-height: 400px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.mylogin-container{
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: skyblue;
+  font-family: 'Comfortaa', cursive;
+}
+
+.card-body{
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+/*   position: absolute; */
+/*   background-color: grey; */
+}
+
+.input{
+  width: 100%;
+  outline: none;
+  border: none;
+  height: 30px;
+  font-size: 14px;
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+}
+.myselect{
+  width: 100%;
+  outline: none;
+  border: none;
+  font-size: 14px;
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+  background-color: transparent;
+
+}
+.input-label{
+
+}
+
+.submit.log-in-submit{
+  background-color: #00B0FF;
+}
+
+.submit.sign-up-submit{
+  background-color: #FFA726;
+}
+
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit{
+  font-weight: bold;
+  width: 100%;
+  height: 40px;
+  outline: none;
+  border: none;
+  background-color: #3498db;
+  color: white;
+  font-size: 18px;
+  align-self: flex-end;
+  border-radius: 5px;
+}
+
+.login{
+  background-color: white;
+  color: black;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+input, select, textarea, button{font-family:inherit;}
+
+.above{
+  z-index: 1;
+  position: absolute;
+}
+.below{
+  z-index: 0;
+}
+.turned{
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+}
+.sign-up-card, .log-in-card{
+}
+.sign-up-card.turned{
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="0.8" /></filter></svg>#filter');
+  -webkit-filter: blur(0.8px);
+          filter: blur(0.8px);
+  webkit-filter: blur(0.8px);
+  -webkit-transform: rotateZ(-90deg) translate3d(0, 100px, 0) scale(0.7);
+          transform: rotateZ(-90deg) translate3d(0, 100px, 0) scale(0.7);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.log-in-card.turned{
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="1" /></filter></svg>#filter');
+  -webkit-filter: blur(1px);
+          filter: blur(1px);
+  webkit-filter: blur(1px);
+  -webkit-transform: rotateZ(-90deg) translateX(0px) translateY(100px) scale(0.7);
+          transform: rotateZ(-90deg) translateX(0px) translateY(100px) scale(0.7);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.animation-state-1 .sign-up-card.below{
+  -webkit-transform: rotateZ(-7deg) translateY(150px) scale(0.78);
+          transform: rotateZ(-7deg) translateY(150px) scale(0.78);
+  opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="0.4" /></filter></svg>#filter');
+  -webkit-filter: blur(0.4px);
+          filter: blur(0.4px);
+  webkit-filter: blur(0.4px);
+}
+.animation-state-1 .log-in-card.above{
+  -webkit-transform: rotateZ(-83deg) translateY(-180px) translateX(100px) scale(0.78);
+          transform: rotateZ(-83deg) translateY(-180px) translateX(100px) scale(0.78);
+  opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="0.5" /></filter></svg>#filter');
+  -webkit-filter: blur(0.5px);
+          filter: blur(0.5px);
+  webkit-filter: blur(0.5px);
+}
+
+.animation-state-finish .sign-up-card.above{
+  -webkit-transform-origin: left top;
+          transform-origin: left top;
+  -webkit-transform: rotateZ(5deg) translateY(0px) scale(1);
+          transform: rotateZ(5deg) translateY(0px) scale(1);
+  opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="0" /></filter></svg>#filter');
+  -webkit-filter: blur(0);
+          filter: blur(0);
+  webkit-filter: blur(0);
+}
+.animation-state-finish .log-in-card.below{
+  -webkit-transform: rotateZ(-90deg) translateX(0px) translateY(100px) scale(0.7);
+          transform: rotateZ(-90deg) translateX(0px) translateY(100px) scale(0.7);
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="1" /></filter></svg>#filter');
+  -webkit-filter: blur(1px);
+          filter: blur(1px);
+  webkit-filter: blur(1px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.animation-state-1 .log-in-card.below{
+  -webkit-transform: rotateZ(-10deg) translateY(180px) scale(0.78);
+          transform: rotateZ(-10deg) translateY(180px) scale(0.78);
+  opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="0.5" /></filter></svg>#filter');
+  -webkit-filter: blur(0.5px);
+          filter: blur(0.5px);
+  webkit-filter: blur(0.5px);
+}
+.animation-state-1 .sign-up-card.above{
+  -webkit-transform: rotateZ(-80deg) translateY(-170px) translateX(100px) scale(0.78);
+          transform: rotateZ(-80deg) translateY(-170px) translateX(100px) scale(0.78);
+  opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="0.4" /></filter></svg>#filter');
+  -webkit-filter: blur(0.4px);
+          filter: blur(0.4px);
+  webkit-filter: blur(0.4px);
+}
+
+.animation-state-finish .log-in-card.above{
+  -webkit-transform-origin: left top;
+          transform-origin: left top;
+  -webkit-transform: rotateZ(5deg) translateY(0px) scale(1);
+          transform: rotateZ(5deg) translateY(0px) scale(1);
+  opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="0" /></filter></svg>#filter');
+  -webkit-filter: blur(0);
+          filter: blur(0);
+  webkit-filter: blur(0);
+}
+.animation-state-finish .sign-up-card.below{
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="0.4" /></filter></svg>#filter');
+  -webkit-filter: blur(0.4px);
+          filter: blur(0.4px);
+  webkit-filter: blur(0.4px);
+  -webkit-transform: rotateZ(-90deg) translate3d(0, 100px, 0) scale(0.7);
+          transform: rotateZ(-90deg) translate3d(0, 100px, 0) scale(0.7);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+}

@@ -1,0 +1,8 @@
+<label htmlFor="username" className="input-label">Shop Name</label>
+<input type="text" className="input" placeholder="" required value={this.state.sname}  onChange={this.setValue.bind(this, 'sname')} />
+
+<label htmlFor="username" className="input-label">Shop Address</label>
+<input type="text" className="input" placeholder="" required value={this.state.sadd}  onChange={this.setValue.bind(this, 'sadd')} />
+
+<label htmlFor="username" className="input-label">Shop Code/GSTIN</label>
+<input type="number" className="input" placeholder="" required value={this.state.scode}  onChange={this.setValue.bind(this, 'scode')}/>

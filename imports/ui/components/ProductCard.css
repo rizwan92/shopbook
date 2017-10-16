@@ -1,0 +1,55 @@
+.card {
+  display: flex;
+  flex: 1;
+  padding: 10px;
+  flex-wrap: wrap;
+  justify-content: center;align-items: center;
+}
+
+/* On mouse-over, add a deeper shadow */
+.productcontainer:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+/* Add some padding inside the card container */
+.productcontainer {
+  width: 300px;
+  padding: 10px;
+  margin: 5px;
+  font-family: 'Comfortaa', cursive;
+
+}
+.productimg{
+  border-radius: 3px;
+}
+.productdetail{
+  display: flex;
+  flex: 1;
+  justify-content:space-between;
+}
+.productprice{
+  color: green;
+  font-weight: bold;
+}
+.producttax{
+  color: black;
+
+}
+.productdiscount{
+  color: orange;
+  font-weight: bold;
+
+}
+.productstock{
+  color: black;
+}
+.cancelbutton{
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+}
+.close-btn{
+  padding: 2px;
+  color: red;
+}

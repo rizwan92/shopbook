@@ -1,0 +1,226 @@
+/* CSS declarations go here */
+ body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #eee!important;
+}
+a{
+  text-decoration: none!important;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+.mainlayout-container{
+  margin-top: 50px;
+  display: flex;
+  flex-flow: row;
+  flex:1;
+  height: 100%;
+}
+.mainlayoutone{
+  flex:0.5;
+}
+.mainlayouttwo{
+  flex:2;
+  flex-wrap: wrap;
+}
+.mainlayoutthree{
+  flex:0.5;
+}
+.mainlayout-search{
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.adminlayout-crousel{
+  display: flex;
+  flex:1;
+  border-radius: 5px;
+}
+.adminlayout-crousel:hover{
+ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.myimage{
+  position: relative;
+  width:100%;
+  height:250px;
+  border-radius: 5px;
+}
+.singleproductimg{
+  position: relative;
+  width:100%;
+  height:500px;
+  border-radius: 5px;
+}
+
+/*=============shop ==============*/
+
+.shop-details{
+
+}
+.shop-container{
+  display: flex;
+  flex-flow: column;
+  flex:1;
+  padding: 10px;
+}
+.shop-container-name{
+  padding-top: 10px;
+  font-size: 1em;
+  color:blue;
+  text-transform: uppercase;
+  font-family: 'Comfortaa', cursive;
+  letter-spacing: 0.3em;
+  cursor: pointer;
+  font-weight: 600;
+}
+.shop-container-other{
+  font-size: 1em;
+  font-family: 'Comfortaa', cursive;
+  cursor: pointer;
+}
+.shop-container-otherdetails{
+  display: flex;
+  flex: 1;
+  align-items: center;
+  border-top: 0.2px solid #afafaf;
+  border-bottom: 0.2px solid #afafaf;
+  margin-top: 5px;
+}
+.shop-container-otherdetails-sub{
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}
+.visitname {
+  font-size: 1.2em;
+  padding: 5px;
+  cursor: pointer;
+  color: blue;
+}
+.staricon{
+  color: yellow;
+}
+.visibilityicon{
+
+  color: red;
+}
+/*=============shop ==============*/
+.mainlayout-addproduct{
+  display: flex;
+  flex:1;
+  justify-content: flex-end;
+  padding: 10px;
+}
+.addproduct-container{
+  display: flex;
+  flex:1;
+  width: 100%;
+  flex-flow: column;
+  flex-wrap: wrap;
+}
+.mybutton {
+  position: relative;
+  display: block;
+  margin: 8px;
+  padding: 10px 35px;
+  border: none;
+  border-radius: 0px;
+  background-color:white;
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 16px;
+  font-weight: 100px;
+  color: #D20034;
+  letter-spacing: 1px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+.settingicon{
+  color: blue;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+
+@media only screen and (max-width: 750px) {
+.mainlayoutone{
+  display: none;
+}.mainlayoutthree{
+  display: none;
+}
+}
+/*==================edit profile==============================*/
+  .edit-container{
+    display: flex;
+    flex-flow: column;
+    flex:1;
+    padding: 10px;
+    }
+    .edit-sub-container{
+      display: flex;
+      flex: 1;
+      justify-content: center;align-items: center;
+    }
+    .myeditlable{
+      font-size: 20px;
+      margin: 10px;
+
+    }
+    .myeditinput{
+      margin: 10px;
+      border: 1px solid grey;
+
+    }
+    .myeditbutton{
+      max-width : 100px!important;
+      margin: 10px!important;
+      font-size: 15px!important;
+      font-weight: 600!important;
+    }
+    .formedit{
+      display: flex;
+      flex: 1;
+      max-width: 400px;
+      flex-flow: column;
+      justify-content: center;
+    }
+
+/*==================edit profile==============================*/
+
+/*==================tabview======================================*/
+.tabcontainer{
+display: flex;
+flex: 1;
+height:40px;
+
+}
+.subtabconatiner{
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  cursor: pointer;
+  font-size: 20px;
+  background-color: #2196F3;
+  color: white;
+}
+.selected{
+color: black;
+}
+/*==================tabview======================================*/
