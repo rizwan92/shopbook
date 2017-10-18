@@ -28,7 +28,7 @@ export default class ProductDetail  extends Component {
           <div className="mainlayout-container">
             <div className="mainlayoutone"></div>
             <div className="mainlayouttwo">
-            <img src={this.state.product.image ? this.state.product.image : 'http://www.pbs.org/weta/africas-great-civilizations/lunchbox_plugins/s/photogallery/img/no-image-available.jpg'}
+            <img src={this.state.product.image ? this.state.product.image : 'http://vollrath.com/ClientCss/images/VollrathImages/No_Image_Available.jpg'}
             alt="Avatar" width="100%"  className="singleproductimg"/>
             </div>
             <div className="mainlayoutthree"></div>

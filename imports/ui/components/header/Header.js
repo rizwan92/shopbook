@@ -29,7 +29,7 @@ import CreateShop from '../CreateShop';
         this.props.history.push('/login');
     }
     checkInShop(){
-      this.props.history.push('/home');
+      this.props.history.push('/myshop');
     }
   home(){
       this.props.history.push('/');
@@ -54,7 +54,6 @@ import CreateShop from '../CreateShop';
 
           <div className="headeritem one" onClick={this.home.bind(this)}>{this.props.name}</div>
           <div className="headeritem three">
-
           {
             Session.get('user') ?
           <div style={{display:'flex'}}>
@@ -65,9 +64,9 @@ import CreateShop from '../CreateShop';
             this.props.isAdmin ?
               null
               :
-              <div  className="mynavitmes" onClick={this.checkInShop.bind(this)}>Check Shop</div>
+              <div  className="mynavitmes" onClick={this.checkInShop.bind(this)}>CheckShop</div>
               :
-              <div  className="mynavitmes" onClick={this.openModal}>Creat Shop</div>
+              <div  className="mynavitmes" onClick={this.openModal}>CreatShop</div>
             }
             <div  className="mynavitmes" onClick={this.logoutHandle.bind(this)}>Logout</div>
           </div>

@@ -27,7 +27,7 @@ export default class App extends Component {
       <Switch>
             <Route exact path="/" component={MainLayout} />
             <Route exact path="/nearby" component={NearByLayout} />
-            <Route  path="/home"  render={this.authentication.bind(this)} />
+            <Route  path="/myshop"  render={this.authentication.bind(this)} />
             <Route  path="/login" component={LoginLayout} />
             <Route  path="/edit" component={EditProfile} />
             <Route  path="/practice" component={Practice} />

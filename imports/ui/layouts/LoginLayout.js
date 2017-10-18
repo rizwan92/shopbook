@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {withRouter } from 'react-router-dom'
 import { Session } from 'meteor/session';
 import ShopApi from '../../api/shop';
+
 class LoginLayout extends Component {
   constructor() {
     super();
@@ -15,6 +16,11 @@ class LoginLayout extends Component {
       rconfirmPassword:'',
       lat:'',
       long:'',
+      addr:'',
+      country:'',
+      states:'',
+      city:'',
+      pc:'',
           }
   }
   handleSubmit(event) {
@@ -52,18 +58,44 @@ class LoginLayout extends Component {
      const number =this.state.rmobile.trim();
      const email = this.state.remail.trim();
      const password = this.state.rpassword.trim();
-     const confirmPassword = this.state.rconfirmPassword.trim();
-      if (password===confirmPassword) {
+     const rconfirmPassword = this.state.rconfirmPassword.trim();
+     const lat = this.state.lat;
+     const long = this.state.long;
+     const addr = this.state.addr.trim();
+     const country = this.state.country.trim();
+     const states = this.state.states.trim();
+     const city = this.state.city.trim();
+     const pc = this.state.pc.trim();
+      if (password === rconfirmPassword) {
 
         Meteor.call('user.check',email,password ,(error,result)=>{
           if (result) {
              Bert.alert( 'Email already Exist', 'danger', 'growl-top-right' );
           }else {
             const user={
-              name,email,number,password,image:'',
+              name,email,number,password,image:'',lat,long,addr,country,states,city,pc
             }
             Meteor.call('user.insert',user,(er,res)=>{
               if (!er) {
+                var belowCard = $('.below'),
+                    aboveCard = $('.above'),
+                    parent = $('.login-container');
+                parent.addClass('animation-state-1');
+                setTimeout(function () {
+                  belowCard.removeClass('below');
+                  aboveCard.removeClass('above');
+                  belowCard.addClass('above');
+                  aboveCard.addClass('below');
+                  setTimeout(function () {
+                    parent.addClass('animation-state-finish');
+                    parent.removeClass('animation-state-1');
+                    setTimeout(function () {
+                      aboveCard.addClass('turned');
+                      belowCard.removeClass('turned');
+                      parent.removeClass('animation-state-finish');
+                    }, 300);
+                  }, 10);
+                }, 300);
                 Bert.alert( `Successfull Registered`, 'success', 'growl-top-right' );
               }
             });
@@ -78,21 +110,10 @@ class LoginLayout extends Component {
        rconfirmPassword:'',
   });
   }
+
   componentWillMount(){
-    if(google.loader.ClientLocation)
-       {
-           visitor_lat = google.loader.ClientLocation.latitude;
-           visitor_lon = google.loader.ClientLocation.longitude;
-           visitor_city = google.loader.ClientLocation.address.city;
-           visitor_region = google.loader.ClientLocation.address.region;
-           visitor_country = google.loader.ClientLocation.address.country;
-           visitor_countrycode = google.loader.ClientLocation.address.country_code;
-           console.log(visitor_lat);
-       }
-       else
-       {
-         console.log("miised");
-       }
+
+
     navigator.permissions.query({
          name: 'geolocation'
      }).then(function(result) {
@@ -110,17 +131,74 @@ class LoginLayout extends Component {
               lat:position.coords.latitude,
               long:position.coords.longitude,
             });
-            console.log(position.coords.accuracy);
             Bert.alert( `Got the Cordinates`, 'success', 'growl-top-right' );
            },(errr)=>{
-             Bert.alert( `${errr}`, 'danger', 'growl-top-right' );
+             Bert.alert( `${errr.message}`, 'danger', 'growl-top-right' );
            })
       } else {
           Bert.alert( `Geolocation is not supported by this browser.`, 'danger', 'growl-top-right' );
       }
     }
 
+
+    initMap =() => {
+      that= this;
+      var input = document.getElementById('pac-input');
+      var autocomplete = new google.maps.places.Autocomplete(input);
+      autocomplete.addListener('place_changed', function() {
+        var place = autocomplete.getPlace();
+        if (place.geometry) {
+          if (that.state.lat === '' || !that.state.long === '') {
+            that.setState({lat:place.geometry.location.lat(),long:place.geometry.location.lng()},()=>{
+              Bert.alert( `Got the Autocomplete Cordinates`, 'success', 'growl-top-right' );
+            })
+          }
+       }else {
+         Bert.alert( `Autocomplete dint get your cordinates type your full address`, 'danger', 'growl-top-right' );
+       }
+       if (place.address_components) {
+          let route = "";
+          let ocality = "";
+          let aal2 = "";
+          let aal1 = "";
+          let country = "";
+          let pc = "";
+          place.address_components.find((place)=>{
+            if (place.types[0] === "route") {
+               route = place.long_name;
+            }
+              if (place.types[0] === "locality") {
+                 locality = place.long_name;
+              }
+              if (place.types[0] === "administrative_area_level_2") {
+                 aal2 = place.long_name;
+              }
+              if (place.types[0] === "administrative_area_level_1") {
+                 aal1 = place.long_name;
+              }
+              if (place.types[0] === "country") {
+                 country = place.long_name;
+              }
+              if (place.types[0] === "postal_code") {
+                 pc = place.long_name;
+              }
+          })
+
+          let addr= `${route} ${locality} ${aal2} ${aal1} ${country} ${pc}`;
+          that.setState({
+            country,
+            state:aal1,
+            city:aal2,
+            addr,
+            pc,
+          })
+        }
+            })
+ }
+
   componentDidMount(){
+
+    window.initMap = this.initMap;
         $(document).on('click', '.below', function () {
         var belowCard = $('.below'),
             aboveCard = $('.above'),
@@ -164,8 +242,11 @@ class LoginLayout extends Component {
         }, 300);
         });
   }
-  render(){
+  handleAddr(e){
+    this.setState({addr:e.target.value})
+  }
 
+  render(){
    return (
      <div className="mylogin-container">
      <div id="particle-canvas"></div>
@@ -186,6 +267,10 @@ class LoginLayout extends Component {
 
                 <label htmlFor="username" className="input-label">Mobile No.</label>
                 <input type="number" className="input" placeholder="" required value={this.state.rmobile}  onChange={this.setValue.bind(this, 'rmobile')}/>
+
+                <label htmlFor="username" className="input-label">Address</label>
+                <input type="text" className="input" id="pac-input" value={this.state.addr}  onChange={this.handleAddr.bind(this)} required />
+
 
                 <label htmlFor="username" className="input-label">password</label>
                 <input type="password" className="input" required value={this.state.rpassword}  onChange={this.setValue.bind(this, 'rpassword')}/>

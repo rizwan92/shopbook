@@ -10,6 +10,13 @@ Meteor.methods({
       email:user.email,
       number:user.number,
       password:user.password,
+      lat:user.lat,
+      long:user.long,
+      addr:user.addr,
+      country:user.country,
+      states:user.states,
+      city:user.city,
+      pc:user.pc,
       image:user.image,
       status:1,
       createdAt: new Date(), // current time

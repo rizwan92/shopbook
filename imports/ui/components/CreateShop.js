@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Session } from 'meteor/session';
-import {CityApi} from '../../api/city';
-import {StateApi} from '../../api/state';
 
 export default class AddProduct  extends Component {
   constructor() {
@@ -10,26 +8,29 @@ export default class AddProduct  extends Component {
       sname:'',
       sadd:'',
       scode:'',
-      stateid:'',
-      cityid:'',
-      states:[],
-      city:[],
       lat:'',
       long:'',
+      country:'',
+      states:'',
+      city:'',
+      pc:'',
           }
   }
   handleRSubmit(event) {
     event.preventDefault();
     const sname = this.state.sname.trim();
-    const stateid = this.state.stateid.trim();
-    const cityid = this.state.cityid.trim();
     const sadd = this.state.sadd.trim();
     const scode = this.state.scode.trim();
-    const lat = this.state.lat
-    const long = this.state.long
+    const lat = this.state.lat;
+    const long = this.state.long;
+    const country = this.state.country.trim();
+    const states = this.state.states.trim();
+    const city = this.state.city.trim();
+    const pc = this.state.pc.trim();
+
       if (Session.get('user')._id) {
         let shop ={
-          userid:Session.get('user')._id,userdetail:Session.get('user'),sname,stateid,cityid,sadd,scode,image:'',lat,long
+          userid:Session.get('user')._id,userdetail:Session.get('user'),sname,sadd,scode,image:'',lat,long,country,states,city,pc
         }
         Meteor.call('shop.check',Session.get('user')._id,(err,res)=>{
           if (res) {
@@ -42,8 +43,6 @@ export default class AddProduct  extends Component {
                 this.props.closeModal();
                 this.setState({
                   sname:'',
-                  stateid:'',
-                  cityid:'',
                   sadd:'',
                   scode:'',
                 })
@@ -59,7 +58,6 @@ export default class AddProduct  extends Component {
   }
 
   componentWillMount() {
-
       if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition((position)=>{
             this.setState({
@@ -70,26 +68,80 @@ export default class AddProduct  extends Component {
       } else {
           Bert.alert( `Geolocation is not supported by this browser.`, 'danger', 'growl-top-right' );
       }
+     }
 
-  this.linktracker = Tracker.autorun(() => {
-    Meteor.subscribe("city");
-    Meteor.subscribe("state");
-    let States = StateApi.find().fetch();
-    let City = CityApi.find().fetch();
-    this.setState({
-            states:States,
-              city:City
-            });
-  });
- }
+ initMap =() => {
+   that= this;
+   var input = document.getElementById('pac-input1');
+   var autocomplete = new google.maps.places.Autocomplete(input);
+   autocomplete.addListener('place_changed', function() {
+     var place = autocomplete.getPlace();
+     if (place.geometry) {
+       if (that.state.lat === '' || !that.state.long === '') {
+         that.setState({lat:place.geometry.location.lat(),long:place.geometry.location.lng()},()=>{
+           Bert.alert( `Got the Autocomplete Cordinates`, 'success', 'growl-top-right' );
+         })
+       }
+    }else {
+      Bert.alert( `Autocomplete dint get your cordinates type your full address`, 'danger', 'growl-top-right' );
+    }
+    if (place.address_components) {
+       let route = "";
+       let locality = "";
+       let sublocality = "";
+       let aal2 = "";
+       let aal1 = "";
+       let country = "";
+       let pc = "";
+       place.address_components.find((place)=>{
+         if (place.types[0] === "route") {
+            route = place.long_name;
+         }
+         if (place.types[0] === "sublocality_level_1") {
+            sublocality = place.long_name;
+         }
+           if (place.types[0] === "locality") {
+              locality = place.long_name;
+           }
+           if (place.types[0] === "administrative_area_level_2") {
+              aal2 = place.long_name;
+           }
+           if (place.types[0] === "administrative_area_level_1") {
+              aal1 = place.long_name;
+           }
+           if (place.types[0] === "country") {
+              country = place.long_name;
+           }
+           if (place.types[0] === "postal_code") {
+              pc = place.long_name;
+           }
+       })
+
+       let addr= `${route} ${sublocality} ${locality} ${aal2} ${aal1} ${country} ${pc}`;
+       that.setState({
+         country,
+         states:aal1,
+         city:aal2,
+         sadd:addr,
+         pc,
+       })
+     }
+         })
+}
+componentDidMount(){
+  window.initMap = this.initMap;
+
+}
   componentWillUnmount() {
-  this.linktracker.stop();
   }
 
   setValue(field, event) {
    let object = {};
    object[field] = event.target.value;
    this.setState(object);
+ }
+ handleAddr(e){
+   this.setState({sadd:e.target.value})
  }
   render(){
     return(
@@ -102,32 +154,12 @@ export default class AddProduct  extends Component {
            <label htmlFor="username" className="input-label">Shop Name</label>
            <input type="text" className="input" placeholder="" required value={this.state.sname}  onChange={this.setValue.bind(this, 'sname')} />
 
-           <label htmlFor="username" className="input-label">Select State</label>
-           <select className="myselect"  value={this.state.stateid}  onChange={this.setValue.bind(this, 'stateid')} required>
-           <option value=""></option>
-             {this.state.states.map((state, i) =>
-             <option key={i} value={state._id}>{state.name}</option>
-             )}
-           </select>
-
-           <label htmlFor="username" className="input-label">Select Place</label>
-           <select className="myselect"  value={this.state.cityid}  onChange={this.setValue.bind(this, 'cityid')} required>
-           <option value=""></option>
-             {this.state.city.map((state, i) =>{
-               if (state.stateid == this.state.stateid) {
-
-                 return <option key={i} value={state._id}>{state.name}</option>
-               }
-             }
-             )}
-           </select>
-
 
            <label htmlFor="username" className="input-label">Shop Address</label>
-           <input type="text" className="input" placeholder="" required value={this.state.sadd}  onChange={this.setValue.bind(this, 'sadd')} />
+           <input type="text" className="input" placeholder="" id="pac-input1" required value={this.state.sadd}  onChange={this.handleAddr.bind(this)}  />
 
            <label htmlFor="username" className="input-label">Shop Code/GSTIN</label>
-           <input type="text" className="input" placeholder="" required value={this.state.scode}  onChange={this.setValue.bind(this, 'scode')}/>
+           <input type="text" className="input" placeholder=""  value={this.state.scode}  onChange={this.setValue.bind(this, 'scode')}/>
 
 
            </div>

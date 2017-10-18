@@ -6,3 +6,42 @@
 
 <label htmlFor="username" className="input-label">Shop Code/GSTIN</label>
 <input type="number" className="input" placeholder="" required value={this.state.scode}  onChange={this.setValue.bind(this, 'scode')}/>
+
+
+
+<label htmlFor="username" className="input-label">Select State</label>
+<select className="myselect"  value={this.state.stateid}  onChange={this.setValue.bind(this, 'stateid')} required>
+<option value=""></option>
+  {this.state.states.map((state, i) =>
+  <option key={i} value={state._id}>{state.name}</option>
+  )}
+</select>
+
+<label htmlFor="username" className="input-label">Select Place</label>
+<select className="myselect"  value={this.state.cityid}  onChange={this.setValue.bind(this, 'cityid')} required>
+<option value=""></option>
+  {this.state.city.map((state, i) =>{
+    if (state.stateid == this.state.stateid) {
+
+      return <option key={i} value={state._id}>{state.name}</option>
+    }
+  }
+  )}
+</select>
+
+
+
+<div className="search-two">
+   <select>
+   <option value="" >State</option>
+   <option>Chattisgarh</option>
+   <option>Maharastra</option>
+   <option>Banglore</option>
+   </select>
+   <select>
+   <option value="" >Place</option>
+   <option>Dhamtari</option>
+   <option>Nagpur</option>
+   <option>Marathalli</option>
+   </select>
+</div>

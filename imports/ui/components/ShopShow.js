@@ -67,7 +67,7 @@ export default class ShopShow extends Component {
          <div className="mainlayouttwo">
 
          <div className="adminlayout-crousel">
-         <img src="http://www.pbs.org/weta/africas-great-civilizations/lunchbox_plugins/s/photogallery/img/no-image-available.jpg"  className="myimage" />
+         <img src="http://vollrath.com/ClientCss/images/VollrathImages/No_Image_Available.jpg"  className="myimage" />
          </div>
 
           <div className="shop-details">

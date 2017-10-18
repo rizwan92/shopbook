@@ -22,7 +22,7 @@ export default class AddProduct  extends Component {
     const discount = this.state.discount.trim();
     const stock = this.state.stock.trim();
     const imageLink = this.state.imageLink.trim();
-      if (Session.get('shop')._id) {
+      if (Session.get('shop')) {
         let product ={
           shopid:Session.get('shop')._id,name,cprice,sprice,tax,discount,stock,imageLink
         }
@@ -79,10 +79,10 @@ export default class AddProduct  extends Component {
              <input type="number" className="input" placeholder="" required value={this.state.sprice}  onChange={this.setValue.bind(this, 'sprice')}/>
 
              <label htmlFor="username" className="input-label">Tax</label>
-             <input type="number" className="input" placeholder="" required value={this.state.tax}  onChange={this.setValue.bind(this, 'tax')} />
+             <input type="number" className="input" placeholder=""  value={this.state.tax}  onChange={this.setValue.bind(this, 'tax')} />
 
              <label htmlFor="username" className="input-label">Discount in % if you want to show</label>
-             <input type="number" className="input" placeholder="" required value={this.state.discount}  onChange={this.setValue.bind(this, 'discount')} />
+             <input type="number" className="input" placeholder=""  value={this.state.discount}  onChange={this.setValue.bind(this, 'discount')} />
 
              <label htmlFor="username" className="input-label">Stock</label>
              <input type="number" className="input" placeholder="" required value={this.state.stock}  onChange={this.setValue.bind(this, 'stock')}/>

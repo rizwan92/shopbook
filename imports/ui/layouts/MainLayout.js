@@ -32,9 +32,6 @@ this.linktracker.stop();
           <div className="mainlayoutone"></div>
           <div className="mainlayouttwo">
 
-          <div className="mainlayout-search">
-            <Search />
-          </div>
 
           <div className="card">
             {

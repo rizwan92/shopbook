@@ -19,7 +19,7 @@ export default class ShopCard  extends Component {
               <i className="material-icons close-btn" onClick={this.productDelete.bind(this)}>close</i>
               </div>
               : null}
-          <img src={this.props.product.image ? this.props.product.image : 'http://www.pbs.org/weta/africas-great-civilizations/lunchbox_plugins/s/photogallery/img/no-image-available.jpg'}
+          <img src={this.props.product.image ? this.props.product.image : 'http://vollrath.com/ClientCss/images/VollrathImages/No_Image_Available.jpg'}
           alt="Avatar" width="100%" height="300px" className="productimg"/>
               <div className="shoppname">{this.props.product.sname}</div>
             <div className="shopdetail">
@@ -28,7 +28,7 @@ export default class ShopCard  extends Component {
             <p className="shopstock">GSTIN - {this.props.product.scode}</p>
             <p className="shoptax">Address - {this.props.product.sadd}</p>
             {
-              this.props.isNearBy ? <p className="shoptax">distance - {this.props.product.distance} Km</p> : null  
+              this.props.isNearBy ? <p className="shoptax">distance - {this.props.product.distance} Km</p> : null
             }
             </div>
           </div>

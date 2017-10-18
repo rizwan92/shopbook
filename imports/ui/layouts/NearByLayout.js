@@ -13,11 +13,11 @@ export default class NearByLayout extends Component {
       lat:'',
       long:'',
       mybutton:true,
+      distance:5,
     }
   }
 
   componentWillMount() {
-
    navigator.permissions.query({
         name: 'geolocation'
     }).then(function(result) {
@@ -34,10 +34,14 @@ export default class NearByLayout extends Component {
            this.setState({
              lat:position.coords.latitude,
              long:position.coords.longitude,
+           },()=>{
+             Bert.alert( `Got the Cordinates`, 'success', 'growl-top-right' );
            });
-           Bert.alert( `Got the Cordinates`, 'success', 'growl-top-right' );
           },(errr)=>{
-            Bert.alert( `${errr}`, 'danger', 'growl-top-right' );
+            Bert.alert( `${errr.message}`, 'danger', 'growl-top-right' );
+          },{
+             enableHighAccuracy: true,
+             maximumAge: Infinity
           })
      } else {
          Bert.alert( `Geolocation is not supported by this browser.`, 'danger', 'growl-top-right' );
@@ -51,6 +55,68 @@ export default class NearByLayout extends Component {
 componentWillUnmount() {
 this.linktracker.stop();
 }
+componentDidMount(){
+  window.initMap = this.initMap;
+}
+initMap =() => {
+  that= this;
+  var input = document.getElementById('pac-input3');
+  var autocomplete = new google.maps.places.Autocomplete(input);
+  autocomplete.addListener('place_changed', function() {
+    var place = autocomplete.getPlace();
+    if (place.geometry) {
+      // if (that.state.lat == "" || that.state.long == "") {
+        that.setState({lat:place.geometry.location.lat(),long:place.geometry.location.lng()},()=>{
+          Bert.alert( `Got the Autocomplete Cordinates`, 'success', 'growl-top-right' );
+        })
+      // }
+   }else {
+     Bert.alert( `Autocomplete dint get your cordinates type your full address`, 'danger', 'growl-top-right' );
+   }
+   if (place.address_components) {
+      let route = "";
+      let ocality = "";
+      let aal2 = "";
+      let aal1 = "";
+      let country = "";
+      let pc = "";
+      place.address_components.find((place)=>{
+        if (place.types[0] === "route") {
+           route = place.long_name;
+        }
+          if (place.types[0] === "locality") {
+             locality = place.long_name;
+          }
+          if (place.types[0] === "administrative_area_level_2") {
+             aal2 = place.long_name;
+          }
+          if (place.types[0] === "administrative_area_level_1") {
+             aal1 = place.long_name;
+          }
+          if (place.types[0] === "country") {
+             country = place.long_name;
+          }
+          if (place.types[0] === "postal_code") {
+             pc = place.long_name;
+          }
+      })
+
+      let addr= `${route} ${locality} ${aal2} ${aal1} ${country} ${pc}`;
+      that.setState({
+        country,
+        state:aal1,
+        city:aal2,
+        addr,
+        pc,
+      })
+    }
+        })
+}
+
+  changeDistance(distance){
+    this.setState({distance})
+  }
+
 handleClick(){
   this.setState({mybutton:false});
 }
@@ -68,10 +134,26 @@ handleClick(){
       if (unit=="N") { dist = dist * 0.8684 }
       return dist
     }
+    function rad (x) { return x * Math.PI / 180 }
+    function haversine(p1, p2) {
+     var R = 6371
+     var dLat  = rad(p2.lat - p1.lat)
+     var dLong = rad(p2.lng - p1.lng)
+     var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+             Math.cos(rad(p1.lat)) * Math.cos(rad(p2.lat)) * Math.sin(dLong/2) * Math.sin(dLong/2)
+     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
+     var d = R * c
+     return Math.round(d)
+   }
     let nearbyshops = this.state.shops.filter((shop)=>{
-      if (distance(this.state.lat,this.state.long,shop.lat,shop.long,"K").toFixed(2)<= 2) {
-        return (shop.distance=distance(this.state.lat,this.state.long,shop.lat,shop.long).toFixed(2));
+      if (this.state.lat && this.state.long) {
+        let latLngA = {lat:  parseFloat(this.state.lat), lng:parseFloat(this.state.long)}
+        let latLngB = {lat:  parseFloat(shop.lat), lng:parseFloat(shop.long)}
+        if ( haversine(latLngA, latLngB) <= parseFloat(this.state.distance)) {
+          return (shop.distance=distance(this.state.lat,this.state.long,shop.lat,shop.long).toFixed(2));
+        }
       }
+
     })
     return (
       <div>
@@ -80,11 +162,18 @@ handleClick(){
           <div className="mainlayoutone"></div>
           <div className="mainlayouttwo">
 
+          <div className="mainlayout-search">
+            <Search changeDistance={this.changeDistance.bind(this)}/>
+          </div>
 
 
             <div className="card">
               {
-
+                nearbyshops.length == 0 ?
+                <div>No Shops Available Near Your Area Right Now</div>
+                    :
+                    <div className="card">
+                    {
                 nearbyshops.map((product,i)=>{
                   return(
                     <NavLink key={i} to={`/shop/${product._id}`}>
@@ -92,6 +181,8 @@ handleClick(){
                     </NavLink>
                   )
                 })
+              }
+                </div>
               }
             </div>
 
