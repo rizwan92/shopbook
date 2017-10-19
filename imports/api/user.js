@@ -22,6 +22,9 @@ Meteor.methods({
       createdAt: new Date(), // current time
     });
   },
+  'user.updatedynamic'(userid,field,value) {
+      return UserApi.update(userid,{ $set: { [field]: value } }); 
+     },
   'user.update'(userid,image) {
     UserApi.update(userid, {
         $set: { image },
@@ -40,7 +43,7 @@ Meteor.methods({
   }
 });
 if (Meteor.isServer) {
-  Meteor.publish('user', function userPublication() {
-    return UserApi.find();
+  Meteor.publish('user', function userPublication(userid) {
+    return UserApi.find({_id:userid});
   });
 }

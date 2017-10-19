@@ -33,10 +33,20 @@ Meteor.methods({
   'shop.check' (userid) {
     let shop = ShopApi.findOne({userid});
     return shop;
-  }
+  },
+  'shop.update' (shopid,image) {
+    let shop = ShopApi.update({_id:shopid},{$set:{image:image}});
+    return shop;
+  },
+  'shop.updatedynamic'(shopid,field,value) {
+      return ShopApi.update(shopid,{ $set: { [field]: value } });
+     }
 });
 if (Meteor.isServer) {
   Meteor.publish('shop', function userPublication() {
     return ShopApi.find();
+  });
+  Meteor.publish('myshop', function userPublication(shopid) {
+    return ShopApi.find({_id:shopid});
   });
 }

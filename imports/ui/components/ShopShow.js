@@ -59,15 +59,21 @@ export default class ShopShow extends Component {
   }
 
   render(){
+    if (this.state.shop) {
+      console.log(this.state.shop);
+    }
    return (
      <div>
-     <Header name="SocialShop" />
+     <Header name="Shopbook" />
        <div className="mainlayout-container">
          <div className="mainlayoutone"></div>
          <div className="mainlayouttwo">
 
          <div className="adminlayout-crousel">
-         <img src="http://vollrath.com/ClientCss/images/VollrathImages/No_Image_Available.jpg"  className="myimage" />
+          {
+            this.state.shop == null ? null : <img src={this.state.shop.image ? this.state.shop.image : "http://vollrath.com/ClientCss/images/VollrathImages/No_Image_Available.jpg"}  className="myimage" />
+          }
+
          </div>
 
           <div className="shop-details">
@@ -75,6 +81,15 @@ export default class ShopShow extends Component {
             this.state.shop == null ? null :<ShopDetail shop={this.state.shop} visit={this.state.visit}/>
           }
           </div>
+
+            {
+              this.state.shop == null ? null
+              :
+              <div className="mainlayout-addproduct">
+              { this.state.shop.smessenger ? <a href={this.state.shop.smessenger ? `https://m.me/${this.state.shop.smessenger}` : "#"} style={mainStyle.mbutton}>Messenger</a> :null}
+              {this.state.shop.swhatsapp ? <a href={this.state.shop.swhatsapp ? this.state.shop.swhatsapp : "#"} style={mainStyle.wbutton} >Whatsapp</a> :null}
+              </div>
+            }
 
           <div className="card">
             {
@@ -95,3 +110,35 @@ export default class ShopShow extends Component {
    )
  }
 }
+const mainStyle = {
+	button: {
+    fontWeight:600,
+		backgroundColor: '#009688',
+		border: 0,
+		padding: '10px 15px',
+		color: '#fff',
+		display: 'block',
+		borderRadius: 3,
+    margin:5,
+	},
+  mbutton: {
+    fontWeight:600,
+		backgroundColor: '#408cec',
+		border: 0,
+		padding: '10px 15px',
+		color: '#fff',
+		display: 'block',
+		borderRadius: 3,
+    margin:5,
+	},
+  wbutton: {
+    fontWeight:600,
+		backgroundColor: 'green',
+		border: 0,
+		padding: '10px 15px',
+		color: '#fff',
+		display: 'block',
+		borderRadius: 3,
+    margin:5,
+	},
+};

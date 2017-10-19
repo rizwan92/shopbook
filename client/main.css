@@ -1,8 +1,24 @@
+@import url(https://fonts.googleapis.com/css?family=Arvo);
+@import "https://fonts.googleapis.com/css?family=Baloo+Tamma|Raleway|Lato";
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,500,300italic,500italic,700italic,900,300);
 /* CSS declarations go here */
  body {
   font-family: 'Roboto', sans-serif;
-  background-color: #eee!important;
-}
+ background: #0ab ;
+ background: -webkit-linear-gradient(rgb(235, 236, 231), rgb(255, 255, 255),rgb(235, 236, 231), rgb(255, 255, 255));
+ background: linear-gradient(rgb(235, 236, 231), rgb(255, 255, 255),rgb(235, 236, 231), rgb(255, 255, 255));
+ height: 100%;
+ }
+ .myhomeTitle{
+   text-align: center;
+ font-family: helvetica, arial, sans-serif;
+ color: rgba(0,0,0,0.5);
+ font-size:1.5em;
+ position:relative;
+ text-align:center;
+ font-family: Roboto,Arvo,sans-serif,;
+ }
 a{
   text-decoration: none!important;
 }
@@ -129,6 +145,11 @@ input::-webkit-inner-spin-button {
 .mainlayout-addproduct{
   display: flex;
   flex:1;
+  padding: 10px;
+}
+.mainlayout-addproduct1{
+  display: flex;
+  flex:1;
   justify-content: flex-end;
   padding: 10px;
 }
@@ -178,33 +199,86 @@ input::-webkit-inner-spin-button {
     }
     .edit-sub-container{
       display: flex;
-      flex: 1;
-      justify-content: center;align-items: center;
-    }
-    .myeditlable{
-      font-size: 20px;
-      margin: 10px;
-
-    }
-    .myeditinput{
-      margin: 10px;
-      border: 1px solid grey;
-
-    }
-    .myeditbutton{
-      max-width : 100px!important;
-      margin: 10px!important;
-      font-size: 15px!important;
-      font-weight: 600!important;
-    }
-    .formedit{
-      display: flex;
-      flex: 1;
-      max-width: 400px;
       flex-flow: column;
-      justify-content: center;
+      flex:1;
+      padding: 3px;
+
+      }
+  .inputandbutton{
+    display: flex;
+    flex: 1;
+  }
+  .myeditbutton{
+    position: relative;
+    border: none;
+    margin: 10px;
+    float: left;
+  	border-radius: 3px;
+  	font-size: 18px;
+  	color: #FFF;
+  	text-decoration: none;
+    transition: all 0.1s;
+  	-webkit-transition: all 0.1s;
+    background-color: #3498db;
+  	border-bottom: 5px solid #2980B9;
+  	text-shadow: 0px -2px #2980B9;
+  }
+  .myeditbutton:active
+{
+	transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+	border-bottom: 1px solid;
+}
+    .editinput{
+      display:block;
+        width: 100%;
+        padding: 10px 0 10px 12px;
+        margin: 10px;
+        font-family: "Arvo";
+        color: #377D6A;
+        border: none;
+        outline: none;
+        color: black;
+        border: 1px solid rgba(0,0,0,0.3);
+        border-radius: 4px;
+        box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px  1px rgba(255,255,255,0.2);
+        text-indent: 60px;
+        transition: all .3s ease-in-out;
+        position: relative;
+        font-size: 15px;
+    }
+    .editinput:focus{
+        text-indent: 12px;
+        color: black;
+        box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2);
     }
 
+    .editlabel{
+        display: block;
+        color: black;
+        font-family: 'Arvo';
+        font-size: 17px;
+    }
+
+    .wrap-label{
+      overflow: hidden;
+  }
+
+    .iconicfill-pen-alt2{
+        position: absolute;
+        left: 10px;
+        color: #fff;
+        font-size:19px;
+        opacity: 1;
+        top: 0;
+        transform:translateX(-100px);
+    }
+
+    .move-pen{animation: move-pen 1s ease-in infinite alternate;}
+    @keyframes move-pen{
+        from{transform:translateX(-4px) rotate(6deg);}
+        to{transform:translateX(4px) rotate(-3deg);}
+    }
 /*==================edit profile==============================*/
 
 /*==================tabview======================================*/

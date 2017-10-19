@@ -68,20 +68,19 @@ class AdminLayout extends Component {
     handleEdit(){
       this.props.history.push('/edit');
     }
-
   render(){
    return (
      <div>
-     <Header name="SocialShop" isAdmin={true}/>
+     <Header name="Shopbook" isAdmin={true}/>
        <div className="mainlayout-container">
          <div className="mainlayoutone"></div>
          <div className="mainlayouttwo">
 
          <div className="adminlayout-crousel">
-         <img src={Session.get('shop').image ? Session.get('user').image : "http://vollrath.com/ClientCss/images/VollrathImages/No_Image_Available.jpg"}  className="myimage" />
+         <img src={Session.get('shop').image ? Session.get('shop').image : "http://vollrath.com/ClientCss/images/VollrathImages/No_Image_Available.jpg"}  className="myimage" />
          </div>
 
-          <div className="mainlayout-addproduct">
+          <div className="mainlayout-addproduct1">
           <i className="material-icons settingicon" onClick={this.handleEdit.bind(this)} >settings</i>
          </div>
           <div className="shop-details">
@@ -92,6 +91,8 @@ class AdminLayout extends Component {
 
           <div className="mainlayout-addproduct">
             <button style={mainStyle.button} onClick={this.openModal} >Add Product</button>
+          {Session.get('shop').smessenger ? <a href={Session.get('shop').smessenger ? `https://m.me/${Session.get('shop').smessenger}` : "#"} style={mainStyle.mbutton}>Messenger</a> :null}
+          {Session.get('shop').swhatsapp ? <a href={Session.get('shop').swhatsapp ? Session.get('shop').swhatsapp : "#"} style={mainStyle.wbutton} >Whatsapp</a> :null}
           </div>
 
           <div className="card">
@@ -135,14 +136,34 @@ const modalStyle = {
 const mainStyle = {
 	button: {
     fontWeight:600,
+		backgroundColor: '#009688',
+		border: 0,
+		padding: '10px 15px',
+		color: '#fff',
+		display: 'block',
+		borderRadius: 3,
+    margin:5,
+	},
+  mbutton: {
+    fontWeight:600,
 		backgroundColor: '#408cec',
 		border: 0,
 		padding: '10px 15px',
 		color: '#fff',
-		width: 150,
 		display: 'block',
-		borderRadius: 3
-	}
+		borderRadius: 3,
+    margin:5,
+	},
+  wbutton: {
+    fontWeight:600,
+		backgroundColor: 'green',
+		border: 0,
+		padding: '10px 15px',
+		color: '#fff',
+		display: 'block',
+		borderRadius: 3,
+    margin:5,
+	},
 };
 
 export default withRouter(AdminLayout);

@@ -22,10 +22,10 @@ changeIcon(){
        <div className="search-one">
          <div className="searchrow">
            <div className="searchgroup">
-              <input type="search" placeholder="Search..." id="pac-input3" onBlur={this.changeIcon.bind(this)} onFocus={this.changeIcon.bind(this)}/>
+              <input type="search" placeholder="Search Your Local Shops By Place..." id="pac-input3" onBlur={this.changeIcon.bind(this)} onFocus={this.changeIcon.bind(this)}/>
            </div>
            {
-             this.state.changeicon ? <i className="material-icons" onClick={this.changeIcon.bind(this)} >search</i> :<i className="material-icons close-btn" onClick={this.changeIcon.bind(this)}>close</i>
+             this.state.changeicon ? <i className="material-icons" >search</i> :<i className="material-icons close-btn" onClick={this.changeIcon.bind(this)}>close</i>
            }
          </div>
        </div>

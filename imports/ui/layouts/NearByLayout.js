@@ -157,7 +157,7 @@ handleClick(){
     })
     return (
       <div>
-      <Header name="SocialShop" isAdmin={false} />
+      <Header name="Shopbook" isAdmin={false} />
         <div className="mainlayout-container">
           <div className="mainlayoutone"></div>
           <div className="mainlayouttwo">
@@ -166,6 +166,7 @@ handleClick(){
             <Search changeDistance={this.changeDistance.bind(this)}/>
           </div>
 
+          <h3 className="myhomeTitle">Welcome to the Shop Book Here You Can Direclty Connect With Your Near Local Shops, Retail Store and Business</h3>
 
             <div className="card">
               {
