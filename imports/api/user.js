@@ -5,7 +5,7 @@ export const UserApi = new Mongo.Collection('user');
 
 Meteor.methods({
   'user.insert'(user) {
-    UserApi.insert({
+  return  UserApi.insert({
       name:user.name,
       email:user.email,
       number:user.number,
@@ -23,7 +23,7 @@ Meteor.methods({
     });
   },
   'user.updatedynamic'(userid,field,value) {
-      return UserApi.update(userid,{ $set: { [field]: value } }); 
+      return UserApi.update(userid,{ $set: { [field]: value } });
      },
   'user.update'(userid,image) {
     UserApi.update(userid, {
@@ -45,5 +45,8 @@ Meteor.methods({
 if (Meteor.isServer) {
   Meteor.publish('user', function userPublication(userid) {
     return UserApi.find({_id:userid});
+  });
+  Meteor.publish('alluser', function userPublication(userid) {
+    return UserApi.find({});
   });
 }

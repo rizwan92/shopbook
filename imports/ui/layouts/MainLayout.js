@@ -4,6 +4,7 @@ import Header from '../components/header/Header';
 import Search from '../components/Search';
 import ShopCard from '../components/ShopCard';
 import {ShopApi} from '../../api/shop';
+import {UserApi} from '../../api/user';
 
 export default class MainLayout extends Component {
   constructor(props) {
@@ -18,7 +19,9 @@ export default class MainLayout extends Component {
   componentWillMount() {
   this.linktracker = Tracker.autorun(() => {
     Meteor.subscribe("shop");
+    Meteor.subscribe("alluser");
     let shops = ShopApi.find({}).fetch();
+    let user = UserApi.find({}).fetch();
     this.setState({shops});
   });
 }

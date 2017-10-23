@@ -40,4 +40,5 @@ if (Meteor.isServer) {
   Meteor.publish('productMaster', function userPublication() {
     return ProductMasterApi.find();
   });
+
 }

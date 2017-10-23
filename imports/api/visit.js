@@ -37,4 +37,5 @@ if (Meteor.isServer) {
   Meteor.publish('visit', function userPublication() {
     return VisitApi.find();
   });
+
 }
