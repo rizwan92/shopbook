@@ -1,0 +1,215 @@
+.mysidebar{
+  height: 100vh;
+  background:#229bdc;
+	border-radius:5px;
+	color:#abe2ff;
+	font-size:12px;
+  padding: 0!important;
+  }
+.sidebar{
+  font-size: 18px;
+  color: white;
+  display: block;
+  padding: 20px;
+  text-align: left;
+  padding-left: 40px;
+  cursor: pointer;
+  font-family: sans-serif;
+  text-decoration: none!important;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.sidebar:hover{
+  background-color: white;
+  transition: 0.5s;
+  color: black;
+}
+
+/* billingnamecounter */
+.billingcontainer{
+  display: flex;
+  justify-content: space-between;
+}
+.billingnamecounter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  width: 500px;
+  border-radius: 20px;
+  padding: 10px;
+  width: 400px;
+}
+.shodnameclass{
+  text-align: right;
+  font-family:Mr Dafoe, sans-serif;
+  font-size:2.5em;
+  padding: 0 !important;
+  margin: 0 !important;
+  text-transform: uppercase;
+ }
+.shopdetailclass{
+  text-align: right;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-family:Mr Dafoe, sans-serif;
+  font-size:1.2em;
+}
+.billingcounterinput {
+  width: 86%;
+ height: 3em;
+ margin: .75em;
+ border-radius: 2em;
+ border: none;
+ background:#efefef;
+ box-shadow: inset 0 .10em .10em rgba(0,0,0,.8);
+ padding-left: 1em;
+ color: rgba(0,0,0,.65);
+ font-family: "Helvetica", Arial, sans-serif;
+ color: black;
+ font-weight:800;
+}
+.billingcounterinput:focus {
+  outline: none;
+}
+.billincountersearch{
+  width: 86%;
+ height: 3em;
+ margin: .75em;
+ border-radius: 2em;
+ border: none;
+ background:#efefef;
+ box-shadow: inset 0 .10em .10em rgba(0,0,0,.8);
+ padding-left: 1em;
+ color: rgba(0,0,0,.65);
+ font-family: "Helvetica", Arial, sans-serif;
+ font-size: 100%;
+ color: black;
+ font-weight:800;
+}
+.billincountersearch:focus{
+  outline: none;
+
+}
+.billincountersearchfilter {
+  padding: 1rem;
+  height: 80px;
+  background: #fff;
+  border-radius: 2px;
+  position: relative;
+  background:inherit;
+
+}
+.billincounterfilter{
+  width: 86%;
+ height: 3em;
+ margin: .75em;
+ border-radius: 2em;
+ border: none;
+ background:#efefef;
+ box-shadow: inset 0 .10em .10em rgba(0,0,0,.8);
+ padding-left: 1em;
+ color: rgba(0,0,0,.65);
+ font-family: "Helvetica", Arial, sans-serif;
+ font-size: 100%;
+ color: black;
+ font-weight:800;
+}
+.billincounterfilter:focus{
+  outline: none;
+}
+.total{
+  font-size: 2em;
+  color: blue;
+}
+/* billingnamecounter */
+
+
+/* myselectdiv */
+.myselectdiv {
+  display: flex;
+  font-size: 15px;
+  padding: 8px;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  background: #fff;
+  border-radius: 2px;
+  z-index: 10;
+  position: relative;
+}
+
+.myselectdiv-subdiv {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: #555;
+}
+
+/* myselectdiv */
+
+
+/* product list desigining*/
+.product-list-div {
+  display: flex;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  background: #fff;
+  border-radius: 2px;
+  margin: 1px;
+  position: relative;
+}
+
+.product-list-div:hover {
+  background: rgba(0,0,100,0.08);
+  border-radius: 5px;
+  color: inherit;
+  cursor: pointer;
+}
+
+.product-list-subdiv1 {
+  display: flex;
+  flex: 1;
+  flex-flow: column;
+}
+
+.product-list-subdiv2 {
+  display: flex;
+  flex: 1;
+  flex-flow: column;
+}
+
+.product-list-subdiv-1 {
+  display: flex;
+}
+
+.produclistbox{
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  background: #fff;
+  border-radius: 2px;
+  position: relative;
+  padding: 1rem;
+  background: #fff;
+
+}
+
+/* product list desigining*/

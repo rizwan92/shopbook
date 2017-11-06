@@ -5,7 +5,6 @@ import { withRouter,NavLink } from 'react-router-dom'
 import Button from 'react-bootstrap/lib/Button';
 import Modal from '../Modal';
 import CreateShop from '../CreateShop';
-//import AddBranchModal from '../branch/AddBranchModal';
 
  class Header extends Component {
   constructor(){
@@ -37,6 +36,12 @@ import CreateShop from '../CreateShop';
   nearby(){
     this.props.history.push('/nearby');
   }
+  products(){
+    this.props.history.push('/product');
+  }
+  billbook(){
+    this.props.history.push('/billbook');
+  }
   openModal() {
     this.setState({
       isModalOpen: true
@@ -57,14 +62,16 @@ import CreateShop from '../CreateShop';
           {
             Session.get('user') ?
           <div style={{display:'flex'}}>
-            <div  className="mynavitmes" onClick={this.home.bind(this)}><i className="material-icons">home</i>Home</div>
-            <div  className="mynavitmes" onClick={this.nearby.bind(this)}><i className="material-icons">near_me</i>NaearBy</div>
+            <div  className="mynavitmes" onClick={this.home.bind(this)}>Home</div>
+            <div  className="mynavitmes" onClick={this.nearby.bind(this)}>NaearBy</div>
+            <div  className="mynavitmes" onClick={this.products.bind(this)}>Product</div>
+            <div  className="mynavitmes" onClick={this.billbook.bind(this)}>Billbook</div>
             {
             Session.get('shop') ?
             this.props.isAdmin ?
               null
               :
-              <div  className="mynavitmes" onClick={this.checkInShop.bind(this)}>CheckShop</div>
+              <div  className="mynavitmes" onClick={this.checkInShop.bind(this)}>MyShop</div>
               :
               <div  className="mynavitmes" onClick={this.openModal}>CreatShop</div>
             }
@@ -72,9 +79,10 @@ import CreateShop from '../CreateShop';
           </div>
           :
           <div style={{display:'flex'}}>
-          <div  className="mynavitmes" onClick={this.home.bind(this)}><i className="material-icons">home</i>Home</div>
-          <div  className="mynavitmes" onClick={this.nearby.bind(this)}><i className="material-icons">near_me</i>NaearBy</div>
-          <div  className="mynavitmes" onClick={this.loginHandle.bind(this)}>Login</div>
+          <div  className="mynavitmes" onClick={this.home.bind(this)}>Home</div>
+          <div  className="mynavitmes" onClick={this.nearby.bind(this)}>NaearBy</div>
+          <div  className="mynavitmes" onClick={this.products.bind(this)}>Product</div>
+          <div  className="mynavitmes" onClick={this.loginHandle.bind(this)}>Shop Registeration</div>
           </div>
           }
           </div>

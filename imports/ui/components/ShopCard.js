@@ -19,7 +19,7 @@ export default class ShopCard  extends Component {
               <i className="material-icons close-btn" onClick={this.productDelete.bind(this)}>close</i>
               </div>
               : null}
-          <img src={this.props.product.image ? this.props.product.image : 'http://vollrath.com/ClientCss/images/VollrathImages/No_Image_Available.jpg'}
+          <img src={this.props.product.image ? this.props.product.image : '/No_Image_Available.jpg'}
           alt="Avatar" width="100%" height="300px" className="productimg"/>
               <div className="shoppname">{this.props.product.sname}</div>
             <div className="shopdetail">

@@ -1,0 +1,175 @@
+/* invoice list desigining*/
+
+.invoive-navlink {
+  text-decoration: none!important;
+  padding: 30px;
+  font-weight: 600;
+  font-size: 16px;
+}
+.invoicelistcontainer{
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.invoice-list-div {
+  display: flex;
+  flex: 1;
+  position: relative;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  cursor: pointer;
+  text-align: center;
+  background: #fff;
+  border-radius: 2px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  padding-left: 40px;
+  padding-right: 40px;
+  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+     -moz-animation: fadein 2s; /* Firefox < 16 */
+      -ms-animation: fadein 2s; /* Internet Explorer */
+       -o-animation: fadein 2s; /* Opera < 12.1 */
+          animation: fadein 2s;
+}@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.invoice-list-div:hover {
+  background: rgba(0,0,100,0.08);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.invoice-list-subdiv-name {
+  flex: 1;
+  text-align: left;
+}
+
+.invoice-list-subdiv-number {
+  flex: 1;
+  text-align: left;
+  font-size: 16px;
+
+}
+
+.invoice-list-subdiv-date {
+  flex: 1;
+  text-align: left;
+  font-size: 16px;
+
+}
+
+.invoicesearch{
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  background: #fff;
+  border-radius: 2px;
+  position: relative;
+  padding: 1rem;
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.invoicesearchsub{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.lastmonth{
+  font-weight: 400;
+  font-size: 1em;
+  color: blue;
+  text-transform: uppercase;
+}
+.invoicesearchinput{
+  width: 100%;
+ height: 3em;
+ border-radius: 2em;
+ border: none;
+ background:#efefef;
+ box-shadow: inset 0 .10em .10em rgba(0,0,0,.8);
+ padding-left: 1em;
+ color: rgba(0,0,0,.65);
+ font-family: "Helvetica", Arial, sans-serif;
+ color: black;
+ font-weight:800;
+}
+
+.invoicesearchinput:focus {
+  outline: none;
+}
+.invoiceavatar{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  background-color: #fafafa;
+  font-weight: 600;
+  font-size: 17px;
+}
+.invoiceavatar:hover{
+  background-color:#abe2ff;
+  color: white;
+  transition: .3s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  }

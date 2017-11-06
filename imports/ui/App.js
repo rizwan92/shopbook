@@ -5,9 +5,14 @@ import  MainLayout  from './layouts/MainLayout';
 import  NearByLayout  from './layouts/NearByLayout';
 import  AdminLayout  from './layouts/AdminLayout';
 import  LoginLayout  from './layouts/LoginLayout';
+import  LinksLayout  from './layouts/LinksLayout';
+import  BillBookLayout  from './layouts/BillBookLayout';
+import  ProductLayout  from './layouts/ProductLayout';
 import  ProductDetail  from './components/ProductDetail';
 import  ShopShow  from './components/ShopShow';
+import  ProductEdit  from './components/ProductEdit';
 import  EditProfile  from './components/EditProfile';
+import  LinkUpdate  from './components/LinkUpdate';
 import  Practice  from './components/Practice';
 import  StatePlace  from './components/StatePlace';
 export default class App extends Component {
@@ -20,6 +25,14 @@ export default class App extends Component {
       <Redirect to={{  pathname: '/login',  state: {  from: props.location  }  }}/>
     )
 }
+authenticationBillbook(props) {
+return (
+  Session.get('shop') ?
+   <BillBookLayout />
+   :
+    <Redirect to={{  pathname: '/login',  state: {  from: props.location  }  }}/>
+  )
+}
 
   render(){
    return (
@@ -27,13 +40,26 @@ export default class App extends Component {
       <Switch>
             <Route exact path="/" component={MainLayout} />
             <Route exact path="/nearby" component={NearByLayout} />
-            <Route  path="/myshop"  render={this.authentication.bind(this)} />
-            <Route  path="/login" component={LoginLayout} />
-            <Route  path="/edit" component={EditProfile} />
-            <Route  path="/practice" component={Practice} />
-            <Route  path="/state" component={StatePlace} />
-            <Route  path="/product/:id" component={ProductDetail} />
-            <Route  path="/shop/:id" component={ShopShow} />
+            <Route exact path="/myshop"  render={this.authentication.bind(this)} />
+            <Route exact path="/login" component={LoginLayout} />
+            <Route exact path="/product" component={ProductLayout} />
+            <Route exact path="/billbook" render={this.authenticationBillbook.bind(this)} />
+            <Route exact path="/billbook/productmaster" component={BillBookLayout}/>
+            <Route exact path="/billbook/invoice" component={BillBookLayout}/>
+            <Route exact path="/billbook/invoice/:id" component={BillBookLayout}/>
+            <Route exact path="/billbook/purchase" component={BillBookLayout}/>
+            <Route exact path="/billbook/purchase/:id" component={BillBookLayout}/>
+            <Route exact path="/billbook/qrcode" component={BillBookLayout}/>
+            <Route exact path="/billbook/report" component={BillBookLayout}/>
+
+            <Route exact path="/edit" component={EditProfile} />
+            <Route exact path="/practice" component={Practice} />
+            <Route exact path="/links" component={LinksLayout} />
+            <Route exact path="/links/:id" component={LinkUpdate} />
+            <Route exact path="/state" component={StatePlace} />
+            <Route exact path="/product/:id" component={ProductDetail} />
+            <Route exact path="/product/edit/:id" component={ProductEdit} />
+            <Route exact path="/shop/:id" component={ShopShow} />
             <Route component={NoMatch}/>
         </Switch>
      </div>

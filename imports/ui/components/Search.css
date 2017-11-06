@@ -40,7 +40,9 @@
 
 
 .searchrow {
-  background-color: #fff;
+  background-color: #337AB7;
+ border-radius: 0;
+ box-shadow: 2px 2px 7px #173853;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -68,6 +70,8 @@
           flex: 1;
 }
 .searchrow .searchgroup input {
+  background-color: #337AB7;
+  color: white;
   font-family: 'Roboto', sans-serif;
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -80,6 +84,10 @@
 }
 .searchrow .searchgroup input:focus {
   outline: none;
+  color: white;
+}
+.searchrow .searchgroup input::-webkit-input-placeholder {
+  color: white;
 }
 .searchrow .searchgroup i {
   border-radius: 50%;
@@ -99,7 +107,7 @@
       -ms-user-select: none;
           user-select: none;
   cursor: pointer;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(1, 1, 1, 0.6);
   margin: 0 32px 0 16px;
   -webkit-transition: margin 150ms;
   transition: margin 150ms;
@@ -122,7 +130,7 @@
       -ms-user-select: none;
           user-select: none;
   cursor: pointer;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(1, 1, 1, 0.6);
   margin-right: 16px;
   -webkit-transition: margin 150ms;
   transition: margin 150ms;

@@ -56,9 +56,12 @@ componentWillUnmount() {
 this.linktracker.stop();
 }
 componentDidMount(){
-  window.initMap = this.initMap;
 }
 initMap =() => {
+  if (!window.google) {
+    return false;
+  }
+
   that= this;
   var input = document.getElementById('pac-input3');
   var autocomplete = new google.maps.places.Autocomplete(input);
@@ -121,6 +124,8 @@ handleClick(){
   this.setState({mybutton:false});
 }
   render() {
+  this.initMap();
+
     function distance(lat1, lon1, lat2, lon2, unit) {
       var radlat1 = Math.PI * lat1/180
       var radlat2 = Math.PI * lat2/180

@@ -7,7 +7,6 @@
 
 /* On mouse-over, add a deeper shadow */
 .shopcontainer:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     background-color: white;
 }
@@ -20,9 +19,9 @@
   margin: 5px;
   font-family: 'Comfortaa', cursive;
   overflow: hidden;
-  border:1px solid black;
   border-radius: 5px;
-  background: white;
+   box-shadow: 8px 12px 30px #b3b3b3;
+background-color: #fdfefe;
 }
 .productimg{
   border-radius: 3px;
@@ -38,7 +37,7 @@ flex-flow: column;
   padding: 1px;
 }
 .shopprice{
-  color: green;
+  color: black;
   font-weight: bold;
   margin: 0!important;
 }
@@ -48,7 +47,7 @@ flex-flow: column;
 
 }
 .shopdiscount{
-  color: orange;
+  color: black;
   font-weight: bold;
   margin: 0!important;
 

@@ -5,7 +5,9 @@ export const ProductMasterApi = new Mongo.Collection('productMaster');
 Meteor.methods({
   'product.insert'(product) {
     ProductMasterApi.insert({
+      userid:product.userid,
       shopid:product.shopid,
+      shopdetail:product.shopdetail,
       name:product.name,
       costprice:product.cprice,
       sellprice:product.sprice,
@@ -13,6 +15,8 @@ Meteor.methods({
       discount:product.discount,
       image:product.imageLink,
       stock:product.stock,
+      hsncode:product.hsncode,
+      unit:product.unit,
       status:1,
       createdAt: new Date(),
     });
@@ -38,7 +42,13 @@ Meteor.methods({
 });
 if (Meteor.isServer) {
   Meteor.publish('productMaster', function userPublication() {
-    return ProductMasterApi.find();
+    return ProductMasterApi.find({}, {sort: {createdAt: -1}});
+  });
+  Meteor.publish('productMasterbyid', function userPublication(shopid) {
+    return ProductMasterApi.find({shopid}, {sort: {createdAt: -1}});
+  });
+  Meteor.publish('productMasterbyindividual', function userPublication(pid) {
+    return ProductMasterApi.find({_id:pid}, {sort: {createdAt: -1}});
   });
 
 }

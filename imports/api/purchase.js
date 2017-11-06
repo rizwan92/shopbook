@@ -27,4 +27,7 @@ if (Meteor.isServer) {
   Meteor.publish('purchase', function userPublication() {
     return PurchaseApi.find();
   });
+  Meteor.publish('purchasebyshiopid', function userPublication(shopid) {
+    return PurchaseApi.find({shopid});
+  });
 }

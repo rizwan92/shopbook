@@ -5,10 +5,8 @@
 /* CSS declarations go here */
  body {
   font-family: 'Roboto', sans-serif;
- background: #0ab ;
- background: -webkit-linear-gradient(rgb(235, 236, 231), rgb(255, 255, 255),rgb(235, 236, 231), rgb(255, 255, 255));
- background: linear-gradient(rgb(235, 236, 231), rgb(255, 255, 255),rgb(235, 236, 231), rgb(255, 255, 255));
- height: 100%;
+ background-color: #f3f3f3;
+  height: 100%;
  }
  .myhomeTitle{
    text-align: center;

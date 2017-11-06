@@ -27,4 +27,7 @@ if (Meteor.isServer) {
   Meteor.publish('invoice', function userPublication() {
     return Invoice.find();
   });
+  Meteor.publish('invoicebyshop', function userPublication(shopid) {
+    return Invoice.find({shopid});
+  });
 }

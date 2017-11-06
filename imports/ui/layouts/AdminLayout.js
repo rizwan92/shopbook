@@ -77,7 +77,7 @@ class AdminLayout extends Component {
          <div className="mainlayouttwo">
 
          <div className="adminlayout-crousel">
-         <img src={Session.get('shop').image ? Session.get('shop').image : "http://vollrath.com/ClientCss/images/VollrathImages/No_Image_Available.jpg"}  className="myimage" />
+         <img src={Session.get('shop').image ? Session.get('shop').image : '/No_Image_Available.jpg'}  className="myimage" />
          </div>
 
           <div className="mainlayout-addproduct1">
@@ -143,6 +143,7 @@ const mainStyle = {
 		display: 'block',
 		borderRadius: 3,
     margin:5,
+    boxShadow: '8px 12px 30px #b3b3b3',
 	},
   mbutton: {
     fontWeight:600,
@@ -153,6 +154,7 @@ const mainStyle = {
 		display: 'block',
 		borderRadius: 3,
     margin:5,
+    boxShadow: '8px 12px 30px #b3b3b3',
 	},
   wbutton: {
     fontWeight:600,
@@ -163,6 +165,7 @@ const mainStyle = {
 		display: 'block',
 		borderRadius: 3,
     margin:5,
+    boxShadow: '8px 12px 30px #b3b3b3',
 	},
 };
 

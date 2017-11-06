@@ -8,6 +8,7 @@ import {Tracker} from 'meteor/tracker';
 import {ProductMasterApi} from '../../api/productMaster';
 import {VisitApi} from '../../api/visit';
 import { Session } from 'meteor/session';
+
 export default class ShopShow extends Component {
   constructor(props) {
 		super(props);
@@ -59,9 +60,6 @@ export default class ShopShow extends Component {
   }
 
   render(){
-    if (this.state.shop) {
-      console.log(this.state.shop);
-    }
    return (
      <div>
      <Header name="Shopbook" />
@@ -71,7 +69,7 @@ export default class ShopShow extends Component {
 
          <div className="adminlayout-crousel">
           {
-            this.state.shop == null ? null : <img src={this.state.shop.image ? this.state.shop.image : "http://vollrath.com/ClientCss/images/VollrathImages/No_Image_Available.jpg"}  className="myimage" />
+            this.state.shop == null ? null : <img src={this.state.shop.image ? this.state.shop.image : '/No_Image_Available.jpg'}  className="myimage" />
           }
 
          </div>

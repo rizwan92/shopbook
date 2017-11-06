@@ -127,11 +127,14 @@ class LoginLayout extends Component {
 
       if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition((position)=>{
-            this.setState({
-              lat:position.coords.latitude,
-              long:position.coords.longitude,
-            });
-            Bert.alert( `Got the Cordinates`, 'success', 'growl-top-right' );
+              if (position.coords.accuracy <= 100) {
+                this.setState({
+                  lat:position.coords.latitude,
+                  long:position.coords.longitude,
+                },()=>{
+                  Bert.alert( `Got the Cordinates`, 'success', 'growl-top-right' );
+                });
+              }
            },(errr)=>{
              Bert.alert( `${errr.message}`, 'danger', 'growl-top-right' );
            })
@@ -142,6 +145,9 @@ class LoginLayout extends Component {
 
 
     initMap =() => {
+      if (!window.google) {
+        return false;
+      }
       that= this;
       var input = document.getElementById('pac-input');
       var autocomplete = new google.maps.places.Autocomplete(input);
@@ -157,19 +163,15 @@ class LoginLayout extends Component {
          Bert.alert( `Autocomplete dint get your cordinates type your full address`, 'danger', 'growl-top-right' );
        }
        if (place.address_components) {
-          let route = "";
-          let ocality = "";
+          let addr ='';
           let aal2 = "";
           let aal1 = "";
           let country = "";
           let pc = "";
           place.address_components.find((place)=>{
-            if (place.types[0] === "route") {
-               route = place.long_name;
-            }
-              if (place.types[0] === "locality") {
-                 locality = place.long_name;
-              }
+
+              addr = addr + ' ' + place.long_name;
+
               if (place.types[0] === "administrative_area_level_2") {
                  aal2 = place.long_name;
               }
@@ -183,8 +185,6 @@ class LoginLayout extends Component {
                  pc = place.long_name;
               }
           })
-
-          let addr= `${route} ${locality} ${aal2} ${aal1} ${country} ${pc}`;
           that.setState({
             country,
             state:aal1,
@@ -197,8 +197,6 @@ class LoginLayout extends Component {
  }
 
   componentDidMount(){
-
-    window.initMap = this.initMap;
         $(document).on('click', '.below', function () {
         var belowCard = $('.below'),
             aboveCard = $('.above'),
@@ -247,6 +245,7 @@ class LoginLayout extends Component {
   }
 
   render(){
+    this.initMap();
    return (
      <div className="mylogin-container">
      <div id="particle-canvas"></div>
@@ -288,7 +287,8 @@ class LoginLayout extends Component {
           <div className="container elevation-3 center above sign-up-card">
 
             <div className="card-body">
-            <div className="belowchange">Signup?</div>
+            <div className="belowchange" style={{color:'black',margin:3}}>To register your shop you need to signup first, click on the signup? button below</div>
+            <div className="belowchange" style={{margin:3}}>Signup?</div>
               <h2>Login</h2>
               <form onSubmit={this.handleSubmit.bind(this)}>
               <div>

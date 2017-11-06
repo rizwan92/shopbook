@@ -24,7 +24,7 @@ export default class AddProduct  extends Component {
     const imageLink = this.state.imageLink.trim();
       if (Session.get('shop')) {
         let product ={
-          shopid:Session.get('shop')._id,name,cprice,sprice,tax,discount,stock,imageLink
+          shopid:Session.get('shop')._id,shopdetail:Session.get('shop'),name,cprice,sprice,tax,discount,stock,imageLink
         }
         Meteor.call('product.insert',product,(err,res)=>{
           if (!err) {

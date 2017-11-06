@@ -183,7 +183,7 @@ export default class ShopShow extends Component {
          <div className="mainlayouttwo">
 
          <div className="adminlayout-crousel">
-         <img src={this.state.simage != '' ? this.state.simage  : "http://vollrath.com/ClientCss/images/VollrathImages/No_Image_Available.jpg"}  className="myimage" />
+         <img src={this.state.simage != '' ? this.state.simage  : '/No_Image_Available.jpg'}  className="myimage" />
          </div>
 
          <div className="mainlayout-addproduct">

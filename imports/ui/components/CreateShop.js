@@ -71,6 +71,10 @@ export default class AddProduct  extends Component {
      }
 
  initMap =() => {
+   if (!window.google) {
+     return false;
+   }
+
    that= this;
    var input = document.getElementById('pac-input1');
    var autocomplete = new google.maps.places.Autocomplete(input);
@@ -129,7 +133,6 @@ export default class AddProduct  extends Component {
          })
 }
 componentDidMount(){
-  window.initMap = this.initMap;
 
 }
   componentWillUnmount() {
@@ -144,6 +147,7 @@ componentDidMount(){
    this.setState({sadd:e.target.value})
  }
   render(){
+    this.initMap();
     return(
        <div>
          <div className="addproduct-container">
