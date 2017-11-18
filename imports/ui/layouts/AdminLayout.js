@@ -8,6 +8,8 @@ import AddProduct from '../components/AddProduct';
 import ProductCard from '../components/ProductCard';
 import {Tracker} from 'meteor/tracker';
 import {ProductMasterApi} from '../../api/productMaster';
+import Coverflow from 'react-coverflow';
+import {StyleRoot} from 'radium';
 
 class AdminLayout extends Component {
   constructor(props) {
@@ -68,7 +70,17 @@ class AdminLayout extends Component {
     handleEdit(){
       this.props.history.push('/edit');
     }
+    handleEditProducts(){
+      this.props.history.push('/edit/product');
+    }
   render(){
+    var settings = {
+     dots: true,
+     infinite: true,
+     speed: 500,
+     slidesToShow: 1,
+     slidesToScroll: 1
+   };
    return (
      <div>
      <Header name="Shopbook" isAdmin={true}/>
@@ -81,7 +93,8 @@ class AdminLayout extends Component {
          </div>
 
           <div className="mainlayout-addproduct1">
-          <i className="material-icons settingicon" onClick={this.handleEdit.bind(this)} >settings</i>
+          <span className="glyphicon glyphicon-cog settingicon" onClick={this.handleEdit.bind(this)} data-toggle="tooltip" title="settings" ></span>
+          <span className="glyphicon glyphicon-edit settingicon" onClick={this.handleEditProducts.bind(this)} data-toggle="tooltip" title="edit products" ></span>
          </div>
           <div className="shop-details">
           {
@@ -95,6 +108,21 @@ class AdminLayout extends Component {
           {Session.get('shop').swhatsapp ? <a href={Session.get('shop').swhatsapp ? Session.get('shop').swhatsapp : "#"} style={mainStyle.wbutton} >Whatsapp</a> :null}
           </div>
 
+          <StyleRoot>
+          <Coverflow
+          style={{display:'flex'}}
+          width={'100%'}
+          height={500}
+          displayQuantityOfSide={2}
+          navigation={true}
+          enableHeading={true}
+          >
+          <img src='https://www.familydollar.com/content/dam/familydollar/products-services/products-module-image.jpg' alt='title or description' width="100%" height="100%"/>
+          <img src='https://www.familydollar.com/content/dam/familydollar/products-services/products-module-image.jpg' alt='title or description'  data-action="http://andyyou.github.io/react-coverflow/"/>
+          <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHZBFtybD7ez3AIcT9GMwhBWAlbCrbNOFMXLR7v4ld8jYdnQMIww' alt='title or description'  data-action="http://andyyou.github.io/react-coverflow/"/>
+          </Coverflow>
+          </StyleRoot>
+
           <div className="card">
             {
               this.state.products.map((product,i)=>{
@@ -106,6 +134,7 @@ class AdminLayout extends Component {
               })
             }
           </div>
+
 
          </div>
          <div className="mainlayoutthree"></div>

@@ -74,6 +74,11 @@ label{
 .input-label{
 
 }
+.myinput-label{
+  margin: 10px;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
 
 .submit.log-in-submit{
   background-color: #00B0FF;

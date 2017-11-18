@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Header from './header/Header';
-import {Tracker} from 'meteor/tracker';
-import {ProductMasterApi} from '../../api/productMaster';
+import { PropertyApi } from '../../api/property';
+import { createContainer } from 'meteor/react-meteor-data';
 
-export default class ProductEdit  extends Component {
+ class ProductEdit  extends Component {
   constructor() {
     super();
     this.state= {
@@ -15,30 +15,56 @@ export default class ProductEdit  extends Component {
       stock:'',
       hsncode:'',
       unit:'',
+      catid:'',
+      subcatid:'',
+      image:'',
+      condition:true,
     }
   }
+  hableImagecondition(){
+    this.setState({condition:!this.state.condition})
+  }
+  uploadWidget(event) {
+  event.preventDefault();
+  let setImagelinkState = (link)=> {
+    this.setState({image:link});
+  }
 
-  componentWillMount() {
-    this.linktracker = Tracker.autorun(() => {
-      Meteor.subscribe("productMasterbyindividual",this.props.match.params.id);
-      let product = ProductMasterApi.find({_id:this.props.match.params.id}).fetch();
-      if (product[0]) {
-        this.setState({
-          name:product[0].name,
-          costprice:product[0].costprice,
-          sellprice:product[0].sellprice,
-          tax:product[0].tax,
-          discount:product[0].discount,
-          stock:product[0].stock,
-          hsncode:product[0].hsncode,
-          unit:product[0].unit,
-        });
-      }
-    });
-}
-componentWillUnmount(){
-this.linktracker.stop();
-}
+       cloudinary.openUploadWidget({ cloud_name: 'dcr2pfgxy', upload_preset: 'kzkxno3w', tags:['xmas']},
+           function(error, result) {
+               setImagelinkState(result[0].secure_url);
+           });
+   }
+  componentWillMount(){
+    let product = this.props.product[0];
+        let keyarray = Object.keys(product);
+        let newobj = {};
+        keyarray.map((keys)=>{
+          newobj[keys] = product[keys]
+        })
+      this.setState(newobj);
+  }
+  // componentWillReceiveProps(nextProps) {
+  //   if (this.props.product != null) {
+  //     let product = this.props.product[0]
+  //       if (product) {
+  //         this.setState({
+  //           name:product.name,
+  //           costprice:product.costprice,
+  //           sellprice:product.sellprice,
+  //           tax:product.tax,
+  //           discount:product.discount,
+  //           stock:product.stock,
+  //           hsncode:product.hsncode,
+  //           unit:product.unit,
+  //           catid:product.catid,
+  //           subcatid:product.subcatid,
+  //         },()=>{
+  //         });
+  //       }
+  //   }
+  // }
+
   handleRSubmit(event) {
     event.preventDefault();
     const name = this.state.name.trim();
@@ -49,12 +75,30 @@ this.linktracker.stop();
     const stock = this.state.stock.trim();
     const hsncode = this.state.hsncode.trim();
     const unit = this.state.unit.trim();
+    const image = this.state.image.trim();
+    const catid = this.state.catid.trim();
+    const subcatid = this.state.subcatid.trim();
 
-    const product = {
-      name,costprice,sellprice,tax,discount,stock,hsncode,unit
-    }
 
-    Meteor.call('product.update',this.props.match.params.id,product,(error,result)=>{
+      let product = this.props.product[0];
+      product.name = name;
+      product.costprice = costprice;
+      product.sellprice = sellprice;
+      product.tax = tax;
+      product.discount = discount;
+      product.image = image;
+      product.stock = stock;
+      product.hsncode = hsncode;
+      product.unit = unit;
+      product.unit = unit;
+      product.catid = subcatid;
+
+    this.props.properties.map((property)=>{
+        product[property.name] = this.state[property.name];
+    })
+
+
+    Meteor.call('product.update',this.props.product[0]._id,product,(error,result)=>{
       if (result) {
         Bert.alert( 'Successfully updated', 'success', 'growl-top-right' );
       }
@@ -68,89 +112,99 @@ this.linktracker.stop();
  }
 
   render(){
+    let myproduct =this.props.product[0];
     return(
       <div>
-      <Header name="Shopbook" isAdmin={false} />
-        <div className="mainlayout-container">
+        <div className="mainlayout-container1">
           <div className="mainlayoutone"></div>
           <div className="mainlayouttwo">
-
-
-          <div className="mainlayout-container">
-            <div className="mainlayoutone"></div>
-            <div className="mainlayouttwo">
 
 
 
             <div>
               <div className="addproduct-container">
-                <h2>Update {this.state.name}</h2>
+                <h3>Update {this.state.name}</h3>
                 <form onSubmit={this.handleRSubmit.bind(this)}>
                 <div>
 
-                <label htmlFor="username" className="input-label">Movie Name</label>
-                <input type="text" className="input" placeholder="" required value={this.state.name}  onChange={this.setValue.bind(this, 'name')} />
+                <label htmlFor="username" className="input-label">Name</label>
+                <input type="text" className="form-control" placeholder="" required value={this.state.name}  onChange={this.setValue.bind(this, 'name')} />
 
-                <label htmlFor="username" className="input-label">Select State</label>
-                <select className="myselect"  value={this.state.category}  onChange={this.setValue.bind(this, 'category')} required>
-                <option value="">Select category</option>
-                <option value="Bollywood">Bollywood</option>
-                <option value="Hollywood">Hollywood</option>
-                <option value="TVShow">TVShow</option>
+                <label htmlFor="username" className="input-label">Product Type</label>
+                <select className="form-control"  value={this.state.catid}  onChange={this.setValue.bind(this, 'catid')} required>
+                <option value="">Select</option>
+                  {this.props.categories.map((category, i) =>
+                  <option key={i} value={category._id}>{category.name}</option>
+                  )}
                 </select>
 
-                <label htmlFor="username" className="input-label">Description</label>
-                <input type="text" className="input" placeholder="" id="pac-input1"  value={this.state.description}  onChange={this.setValue.bind(this, 'description')} />
-
-                <label htmlFor="username" className="input-label">length</label>
-                <input type="text" className="input" placeholder=""  value={this.state.length}  onChange={this.setValue.bind(this, 'length')}/>
-
-                <label htmlFor="username" className="input-label">Rating</label>
-                <input type="text" className="input" placeholder=""  value={this.state.rating}  onChange={this.setValue.bind(this, 'rating')}/>
-
-                <label htmlFor="username" className="input-label">Quality</label>
-                <input type="text" className="input" placeholder=""  value={this.state.quality}  onChange={this.setValue.bind(this, 'quality')}/>
-
-                <label htmlFor="username" className="input-label">Size in</label>
-                <select className="myselect"  value={this.state.sizein}  onChange={this.setValue.bind(this, 'sizein')} >
-                <option value="">Select category</option>
-                <option value="KB">KB</option>
-                <option value="MB">MB</option>
-                <option value="GB">GB</option>
+                <label htmlFor="username" className="input-label">Product Sub Type</label>
+                <select className="form-control"  value={this.state.subcatid}  onChange={this.setValue.bind(this, 'subcatid')} required>
+                <option value="">Select</option>
+                  {this.props.subcategories.map((subcategory, i) =>{
+                    if (subcategory.catid === this.state.catid) {
+                      return(
+                        <option key={i} value={subcategory._id}>{subcategory.name}</option>
+                      )
+                    }
+                  }
+                  )}
                 </select>
 
-                <label htmlFor="username" className="input-label">Size</label>
-                <input type="text" className="input" placeholder=""  value={this.state.size}  onChange={this.setValue.bind(this, 'size')}/>
 
-                <label htmlFor="username" className="input-label">Download Link</label>
-                <input type="text" className="input" placeholder=""  value={this.state.dlink}  onChange={this.setValue.bind(this, 'dlink')}/>
+                  <label htmlFor="username" className="input-label">Cost Price</label>
+                  <input type="number" className="form-control" placeholder="" required value={this.state.costprice}  onChange={this.setValue.bind(this, 'costprice')}/>
+
+                  <label htmlFor="username" className="input-label">Sell Price</label>
+                  <input type="number" className="form-control" placeholder="" required value={this.state.sellprice}  onChange={this.setValue.bind(this, 'sellprice')}/>
+
+                  <label htmlFor="username" className="input-label">Tax</label>
+                  <input type="number" className="form-control" placeholder=""  value={this.state.tax}  onChange={this.setValue.bind(this, 'tax')} />
+
+                  <label htmlFor="username" className="input-label">Discount in % if you want to show</label>
+                  <input type="number" className="form-control" placeholder=""  value={this.state.discount}  onChange={this.setValue.bind(this, 'discount')} />
+
+                  <label htmlFor="username" className="input-label">HSN CODE</label>
+                  <input type="number" className="form-control" placeholder=""  value={this.state.hsncode}  onChange={this.setValue.bind(this, 'hsncode')} />
+
+                  <label htmlFor="username" className="input-label">Unit</label>
+                  <input type="text" className="form-control" placeholder=""  value={this.state.unit}  onChange={this.setValue.bind(this, 'unit')} />
+
+                  <label htmlFor="username" className="input-label">Stock</label>
+                  <input type="number" className="form-control" placeholder="" required value={this.state.stock}  onChange={this.setValue.bind(this, 'stock')}/>
 
                 <input type="checkbox" onChange={this.hableImagecondition.bind(this)} />
 
                 {
                   this.state.condition ?
                   <div>
-                    <label htmlFor="username" className="input-label">imageLink</label>
-                    <input type="text" className="input" placeholder=""  value={this.state.imageLink}  onChange={this.setValue.bind(this, 'imageLink')}/>
+                    <label htmlFor="username" className="input-label">image</label>
+                    <input type="text" className="form-control" placeholder=""  value={this.state.image}  onChange={this.setValue.bind(this, 'image')}/>
                   </div>
                   :
                   <button onClick={this.uploadWidget.bind(this)} className="mybutton">upload image</button>
                 }
 
+                {
+                  this.props.properties == null ? null :
+                  this.props.properties.map((property,i)=>{
+                    return(
+                      <div key={i}>
+                      <label htmlFor="username" className="input-label">{property.name}</label>
+                      <input type="text" className="form-control" placeholder=""  value={this.state[`${property.name}`]}  onChange={this.setValue.bind(this, `${property.name}`)}/>
+                      </div>
+                    )
+                  })
+
+                }
+
                 </div>
-                <div style={{marginTop:'auto'}}>
+                <div style={{marginTop:10}}>
                   <button className="submit sign-up-submit" type="submit">Submit</button>
                 </div>
                 </form>
               </div>
             </div>
-
-
-
-            </div>
-            <div className="mainlayoutthree"></div>
-          </div>
-
 
 
           </div>
@@ -160,3 +214,10 @@ this.linktracker.stop();
     );
   }
 }
+export default createContainer((props) => {
+    const handle = Meteor.subscribe('propertysubcatid',props.product[0].subcatid);
+    return {
+        loading: !handle.ready(),
+        properties : handle.ready() ? PropertyApi.find({subcatid:props.product[0].subcatid}).fetch() : null,
+    };
+}, ProductEdit);

@@ -17,6 +17,8 @@ Meteor.methods({
       stock:product.stock,
       hsncode:product.hsncode,
       unit:product.unit,
+      catid:product.catid,
+      subcatid:product.subcatid,
       status:1,
       createdAt: new Date(),
     });
@@ -29,8 +31,8 @@ Meteor.methods({
     let product = ProductMasterApi.findOne({_id:productid});
     return product;
   },
-  'product.update'(product) {
-   ProductMasterApi.update(product._id, product);
+  'product.update'(productid,product) {
+    return ProductMasterApi.update({_id:productid},product);
   },
   'product.updatequantity'(productid,productquantity) {
     let product = ProductMasterApi.findOne({_id:productid});

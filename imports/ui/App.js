@@ -15,6 +15,8 @@ import  EditProfile  from './components/EditProfile';
 import  LinkUpdate  from './components/LinkUpdate';
 import  Practice  from './components/Practice';
 import  StatePlace  from './components/StatePlace';
+import CategoryPage from './pages/CategoryPage';
+import EditProductPage from './pages/EditProductPage';
 export default class App extends Component {
 
   authentication(props) {
@@ -60,6 +62,13 @@ return (
             <Route exact path="/product/:id" component={ProductDetail} />
             <Route exact path="/product/edit/:id" component={ProductEdit} />
             <Route exact path="/shop/:id" component={ShopShow} />
+
+            <Route exact path="/category" component={CategoryPage} />
+            <Route exact path="/category/:id" component={CategoryPage}/>
+            <Route exact path="/category/subcategory/:id" component={CategoryPage}/>
+
+            <Route exact path="/edit/product" component={EditProductPage}/>
+            <Route exact path="/edit/product/:id" component={EditProductPage}/>
             <Route component={NoMatch}/>
         </Switch>
      </div>

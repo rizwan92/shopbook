@@ -5,16 +5,12 @@ export const CategoryApi = new Mongo.Collection('category');
 
 Meteor.methods({
   'category.insert'(name) {
-    if (! Meteor.userId()) {
-      throw new Meteor.Error('not-authorized');
-    }
-    CategoryApi.insert({
+      return CategoryApi.insert({
       name:name,
       createdAt: new Date(), // current time
     });
   },
   'category.remove'(taskId) {
-    check(taskId, String);
     CategoryApi.remove(taskId);    //Logic to delete the item
   },
   // 'tasks.setChecked'(taskId, setChecked) {

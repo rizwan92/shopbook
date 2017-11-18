@@ -13,6 +13,7 @@ import '../imports/api/purchase';
 import '../imports/api/subCategory';
 import '../imports/api/tax';
 import '../imports/api/unit';
+import '../imports/api/property';
 Meteor.startup(() => {
   // code to run on server at startup
 });

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Session } from 'meteor/session';
-export default class AddProduct  extends Component {
+import { createContainer } from 'meteor/react-meteor-data';
+import { SubCategoryApi } from '../../api/subCategory';
+import { CategoryApi } from '../../api/category';
+
+class AddProduct  extends Component {
   constructor() {
     super();
     this.state={
@@ -11,6 +15,8 @@ export default class AddProduct  extends Component {
       discount:'',
       stock:'',
       imageLink:'',
+      catid:'',
+      subcatid:'',
           }
   }
   handleRSubmit(event) {
@@ -22,9 +28,14 @@ export default class AddProduct  extends Component {
     const discount = this.state.discount.trim();
     const stock = this.state.stock.trim();
     const imageLink = this.state.imageLink.trim();
+    const catid = this.state.catid.trim();
+    const subcatid = this.state.subcatid.trim();
+    const hsncode = '';
+    const unit = '';
+
       if (Session.get('shop')) {
         let product ={
-          shopid:Session.get('shop')._id,shopdetail:Session.get('shop'),name,cprice,sprice,tax,discount,stock,imageLink
+          shopid:Session.get('shop')._id,userid:Session.get('user')._id,shopdetail:Session.get('shop'),name,cprice,sprice,tax,discount,stock,imageLink,catid,subcatid,hsncode,unit
         }
         Meteor.call('product.insert',product,(err,res)=>{
           if (!err) {
@@ -36,7 +47,7 @@ export default class AddProduct  extends Component {
               tax:'',
               discount:'',
               stock:'',
-              imageLink:'',
+              subcatid:'',
             })
             this.props.closeModal();
           }
@@ -72,6 +83,28 @@ export default class AddProduct  extends Component {
            <label htmlFor="username" className="input-label">Name</label>
            <input type="text" className="input" placeholder="" required value={this.state.name}  onChange={this.setValue.bind(this, 'name')} />
 
+           <label htmlFor="username" className="input-label">Product Type</label>
+           <select className="myselect"  value={this.state.catid}  onChange={this.setValue.bind(this, 'catid')} required>
+            <option value="">Select</option>
+             {this.props.categories.map((category, i) =>
+             <option key={i} value={category._id}>{category.name}</option>
+             )}
+           </select>
+
+           <label htmlFor="username" className="input-label">Product Sub Type</label>
+           <select className="myselect"  value={this.state.subcatid}  onChange={this.setValue.bind(this, 'subcatid')} required>
+           <option value="">Select</option>
+             {this.props.subcategories.map((subcategory, i) =>{
+                 if (subcategory.catid === this.state.catid) {
+                   return(
+                     <option key={i} value={subcategory._id}>{subcategory.name}</option>
+                   )
+                 }
+               }
+             )}
+           </select>
+
+
              <label htmlFor="username" className="input-label">Cost Price</label>
              <input type="number" className="input" placeholder="" required value={this.state.cprice}  onChange={this.setValue.bind(this, 'cprice')}/>
 
@@ -97,3 +130,12 @@ export default class AddProduct  extends Component {
     );
   }
 }
+export default createContainer((props) => {
+    const handle = Meteor.subscribe('subCategory');
+    const handle1 = Meteor.subscribe('category');
+    return {
+        loading: !handle.ready(),
+        subcategories: SubCategoryApi.find({}).fetch(),
+        categories: CategoryApi.find({}).fetch(),
+    };
+}, AddProduct);
