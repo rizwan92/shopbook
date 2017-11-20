@@ -8,8 +8,6 @@ import AddProduct from '../components/AddProduct';
 import ProductCard from '../components/ProductCard';
 import {Tracker} from 'meteor/tracker';
 import {ProductMasterApi} from '../../api/productMaster';
-import Coverflow from 'react-coverflow';
-import {StyleRoot} from 'radium';
 
 class AdminLayout extends Component {
   constructor(props) {
@@ -74,13 +72,6 @@ class AdminLayout extends Component {
       this.props.history.push('/edit/product');
     }
   render(){
-    var settings = {
-     dots: true,
-     infinite: true,
-     speed: 500,
-     slidesToShow: 1,
-     slidesToScroll: 1
-   };
    return (
      <div>
      <Header name="Shopbook" isAdmin={true}/>
@@ -108,28 +99,12 @@ class AdminLayout extends Component {
           {Session.get('shop').swhatsapp ? <a href={Session.get('shop').swhatsapp ? Session.get('shop').swhatsapp : "#"} style={mainStyle.wbutton} >Whatsapp</a> :null}
           </div>
 
-          <StyleRoot>
-          <Coverflow
-          style={{display:'flex'}}
-          width={'100%'}
-          height={500}
-          displayQuantityOfSide={2}
-          navigation={true}
-          enableHeading={true}
-          >
-          <img src='https://www.familydollar.com/content/dam/familydollar/products-services/products-module-image.jpg' alt='title or description' width="100%" height="100%"/>
-          <img src='https://www.familydollar.com/content/dam/familydollar/products-services/products-module-image.jpg' alt='title or description'  data-action="http://andyyou.github.io/react-coverflow/"/>
-          <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHZBFtybD7ez3AIcT9GMwhBWAlbCrbNOFMXLR7v4ld8jYdnQMIww' alt='title or description'  data-action="http://andyyou.github.io/react-coverflow/"/>
-          </Coverflow>
-          </StyleRoot>
 
           <div className="card">
             {
               this.state.products.map((product,i)=>{
                 return(
-                  <NavLink key={i} to={`/product/${product._id}`}>
                   <ProductCard   product={product} isAdmin={true}/>
-                  </NavLink>
                 )
               })
             }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import './ShopCard.css';
 export default class ShopCard  extends Component {
   constructor() {
@@ -14,14 +15,14 @@ export default class ShopCard  extends Component {
     return(
        <div>
           <div className="shopcontainer">
-            { this.props.isAdmin ?
-              <div className="cancelbutton">
-              <i className="material-icons close-btn" onClick={this.productDelete.bind(this)}>close</i>
-              </div>
-              : null}
           <img src={this.props.product.image ? this.props.product.image : '/No_Image_Available.jpg'}
-          alt="Avatar" width="100%" height="300px" className="productimg"/>
-              <div className="shoppname">{this.props.product.sname}</div>
+          alt="Avatar" width="100%" height="300px" className="shopimg"/>
+          <div className="shopstepni">
+              <div className="shoppname">
+              <NavLink  to={`/shop/${this.props.product._id}`}>
+              {this.props.product.sname}
+              </NavLink>
+              </div>
             <div className="shopdetail">
             <p className="shopprice">Email - {this.props.product.userdetail.email}</p>
             <p className="shopdiscount">Contact - {this.props.product.userdetail.number}</p>
@@ -30,6 +31,7 @@ export default class ShopCard  extends Component {
             {
               this.props.isNearBy ? <p className="shoptax">distance - {this.props.product.distance} Km</p> : null
             }
+            </div>
             </div>
           </div>
        </div>

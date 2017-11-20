@@ -67,9 +67,7 @@ handleSearch(event){
             {
               searchshps.map((product,i)=>{
                 return(
-                  <NavLink key={i} to={`/shop/${product._id}`}>
-                  <ShopCard   product={product} isAdmin={false}/>
-                  </NavLink>
+                  <ShopCard   product={product} isAdmin={false} key={i}/>
                 )
               })
             }

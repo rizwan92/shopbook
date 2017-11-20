@@ -17,6 +17,7 @@ import  Practice  from './components/Practice';
 import  StatePlace  from './components/StatePlace';
 import CategoryPage from './pages/CategoryPage';
 import EditProductPage from './pages/EditProductPage';
+import ImageSlickPage from './pages/ImageSlickPage';
 export default class App extends Component {
 
   authentication(props) {
@@ -40,11 +41,11 @@ return (
    return (
      <div>
       <Switch>
-            <Route exact path="/" component={MainLayout} />
+            <Route exact path="/" component={ProductLayout} />
             <Route exact path="/nearby" component={NearByLayout} />
             <Route exact path="/myshop"  render={this.authentication.bind(this)} />
             <Route exact path="/login" component={LoginLayout} />
-            <Route exact path="/product" component={ProductLayout} />
+            <Route exact path="/product" component={MainLayout} />
             <Route exact path="/billbook" render={this.authenticationBillbook.bind(this)} />
             <Route exact path="/billbook/productmaster" component={BillBookLayout}/>
             <Route exact path="/billbook/invoice" component={BillBookLayout}/>
@@ -69,6 +70,8 @@ return (
 
             <Route exact path="/edit/product" component={EditProductPage}/>
             <Route exact path="/edit/product/:id" component={EditProductPage}/>
+
+            <Route exact path="/imageslick" component={ImageSlickPage}/>
             <Route component={NoMatch}/>
         </Switch>
      </div>

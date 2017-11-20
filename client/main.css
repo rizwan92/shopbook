@@ -143,6 +143,11 @@ input::-webkit-inner-spin-button {
 .staricon{
   color: yellow;
 }
+.close-btn-search{
+  font-size: 2rem;
+  padding: 20px;
+  color: #fff;
+}
 .visibilityicon{
 
   color: red;
@@ -310,3 +315,12 @@ height:40px;
 color: black;
 }
 /*==================tabview======================================*/
+.containerClass{
+  border-style: groove;
+  width: 100vw;
+}
+
+.myidswiper{
+  border-style: groove;
+  height: 400px;
+}

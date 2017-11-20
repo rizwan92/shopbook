@@ -30,6 +30,9 @@ export default class ProductLayout  extends Component {
   changeIcon(){
     this.setState({changeicon:!this.state.changeicon})
   }
+  changeIconforcross(){
+    this.setState({search:'',changeicon:!this.state.changeicon})
+  }
 
   render(){
     let searchproducts = this.state.products.filter((product)=>{
@@ -48,25 +51,21 @@ export default class ProductLayout  extends Component {
               <div className="search-one">
                 <div className="searchrow">
                   <div className="searchgroup">
-                      <input type="search" placeholder="Search Your Local Shops By Name..." id="pac-input3" value={this.state.search} onChange={this.handleSearch.bind(this)} onBlur={this.changeIcon.bind(this)} onFocus={this.changeIcon.bind(this)}/>
+                      <input type="search" placeholder="Search Your Products By Name..." id="pac-input3" value={this.state.search} onChange={this.handleSearch.bind(this)}  onFocus={this.changeIcon.bind(this)}/>
                   </div>
                   {
-                    this.state.changeicon ? <i className="material-icons" >search</i> :<i className="material-icons close-btn" onClick={this.changeIcon.bind(this)}>close</i>
+                    this.state.changeicon ? <span className="glyphicon glyphicon-search close-btn-search" ></span> :<span className="glyphicon glyphicon-remove close-btn-search" onClick={this.changeIconforcross.bind(this)}></span>
                   }
                 </div>
               </div>
             </div>
           </div>
 
-          <h3 className="myhomeTitle">Welcome to the Shop Book Here You Can Direclty Connect With Your Near Local Shop's, Retail Store's and Business</h3>
-
           <div className="card">
             {
               searchproducts.map((product,i)=>{
                 return(
-                  <NavLink key={i} to={`/product/${product._id}`}>
-                  <ProductCard   product={product} isAdmin={false}/>
-                  </NavLink>
+                  <ProductCard   product={product} isAdmin={false} key={i}/>
                 )
               })
             }

@@ -64,7 +64,7 @@ import CreateShop from '../CreateShop';
           <div style={{display:'flex'}}>
             <div  className="mynavitmes" onClick={this.home.bind(this)}>Home</div>
             <div  className="mynavitmes" onClick={this.nearby.bind(this)}>NaearBy</div>
-            <div  className="mynavitmes" onClick={this.products.bind(this)}>Product</div>
+            <div  className="mynavitmes" onClick={this.products.bind(this)}>Shop</div>
             <div  className="mynavitmes" onClick={this.billbook.bind(this)}>Billbook</div>
             {
             Session.get('shop') ?
@@ -81,8 +81,8 @@ import CreateShop from '../CreateShop';
           <div style={{display:'flex'}}>
           <div  className="mynavitmes" onClick={this.home.bind(this)}>Home</div>
           <div  className="mynavitmes" onClick={this.nearby.bind(this)}>NaearBy</div>
-          <div  className="mynavitmes" onClick={this.products.bind(this)}>Product</div>
-          <div  className="mynavitmes" onClick={this.loginHandle.bind(this)}>Shop Registeration</div>
+          <div  className="mynavitmes" onClick={this.products.bind(this)}>Shop</div>
+          <div  className="mynavitmes" onClick={this.loginHandle.bind(this)}>Signup</div>
           </div>
           }
           </div>
