@@ -21,16 +21,18 @@ export default class ProductCard  extends Component {
               <span className="glyphicon glyphicon-trash close-btn" onClick={this.productDelete.bind(this)}></span>
               </div>
               : null}
+              <NavLink  to={`/product/${this.props.product._id}`}>
           <img src={this.props.product.image ? this.props.product.image : '/No_Image_Available.jpg'}
           alt="Avatar"  className="productimg"/>
+            </NavLink>
           <div className="stepni">
-            <h4><b>
+            <b>
             <NavLink  to={`/product/${this.props.product._id}`}>
               {this.props.product.name}
                 </NavLink>
-              </b></h4>
+              </b>
             <div className="productdetail">
-            <p className="productprice">₹ {this.props.product.sellprice}</p>
+            <p className="productprice">price: ₹ {this.props.product.sellprice}  including all tax</p>
             <p className="productdiscount">discount {this.props.product.discount} %</p>
             </div>
             <div className="productdetail">

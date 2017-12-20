@@ -179,3 +179,76 @@ background: transparent!important;
   border: 1px solid #efefef!important;
   cursor: pointer!important;
 }
+
+=============================================================
+ Dell Laptop 3552	(Celeron N3060/4GB/500GB/15.6" TrueLife & HD/Intel® HD Graphics/Ubuntu/Black)	21000
+ Dell Laptop 3552	(Pentium N3710/4GB/1TB/15.6" TrueLife & HD/Intel® HD Graphics/Ubuntu/Black)	23000
+ Dell Laptop 3567	(i3, 6006U 6th Gen/4GB/1TB/15.6" TrueLife & HD/	Intel® HD Graphics/Ubuntu/Black M)	30500
+
+ Dell Laptop 3567	(i3, 6006U 6th Gen/4GB/1TB/15.6" TrueLife & HD/	Intel® HD Graphics 520/Win 10/Black M)	34000
+
+ Dell Laptop 5567	(i3, 6006U 6th Gen/4GB/1TB/15.6" FHD/Intel® HD Graphics 520/Ubuntu/Black)	31900
+
+ Dell Laptop 5567	(i3, 6006U 6th Gen/4GB/1TB/15.6" FHD/Intel® HD Graphics 520/Win 10/Black & Grey)35300
+
+ Dell Laptop 3567	(i3, 6006U 6th Gen/4GB/1TB/15.6" TrueLife & HD/	AMD 2GB Graphic/Ubuntu/Black M)	33500
+
+ Dell Laptop 3567	(i3, 6006U 6th Gen/4GB/1TB/15.6" TrueLife & HD/	AMD 2GB Graphic/Win 10/Black M)	36750
+
+ Dell Laptop 3567	(7th Gen i5-7200U/8GB/1TB/15.6" TrueLife & HD/AMD 2GB Graphic/Ubuntu/Black M)	47500
+
+ Dell Laptop 3567	(7th Gen i5-7200U/8GB/1TB/15.6" TrueLife & HD/AMD 2GB Graphic/Win 10 + MS Off H&S 2016/Black M)	52000
+
+ Dell Laptop 3567	(7th Gen i7-7500U/8GB/1TB/15.6" TrueLife & HD/AMD 2GB Graphic/Win 10 + MS Off H&S 2016/Black M)	59000
+
+ Dell Laptop 5567	(7th Gen i5-7200U/8GB/2TB/15.6-inch Anti-Glare/Backlight KB/AMD 2GB Graphic/Win 10 + MS Off H&S 2016	Gloss White / Bali Blue / Black)	57000
+
+ Dell Laptop 5570	(8th Gen i5-8250U/8GB/1TB/15.6-inch FHD Anti-Glare/Backlight KB/AMD 2GB Graphic/Win 10 + MS Off H&S 2016 Licorice Black & Platinum Silver)	57000
+
+ Dell Laptop 5570	(8th Gen i5-8250U/8GB/2TB/15.6-inch FHD Anti-Glare/Backlight KB/AMD 4GB Graphic/Win 10 + MS Off H&S 2016 Licorice Black & Platinum Silver)	62000
+
+ Dell Laptop 5570	(8th Gen i7-8550U/8GB/2TB/15.6-inch FHD Anti-Glare/Backlight KB/AMD 4GB Graphic/Win 10 + MS Off H&S 2016 Licorice Black & Platinum Silver)	70000
+
+                                                                 2 in 1 Laptops
+
+ Dell Laptop 3168 2in1	Pentium N3710/4GB/500GB/11.6" TrueLife & Touch/Intel® HD Graphics/Win 10 + MS Off H&S 2016/Red/Blue)	33000
+
+ Dell Laptop 5368 2in1	i3, 6100U 6th Gen/4GB/1 TB/13.3" Full HD touch with Truelife & HD Camera/Intel® HD Graphics 520/Win 10 + MS Off H&S 2016/Premium CC	Silver)	49500
+
+ Dell Laptop 5578 2in1	i3-7100U 7th Gen /4GB/1 TB/13.3" Full HD touch with Truelife & HD Camera/Intel® HD Graphics 520/Win 10 + MS Off H&S 2016/Premium CC	Silver)	cost price 47500
+
+ Dell Laptop 5578 2in1	i5, 7200U 7th Gen	8  GB	1 TB/15.6-inch Full HD Touch Display with -IR Camera/Intel® HD Graphics 520/Win 10 + MS Off H&S 2016/Premium CC	Silver)	65000
+
+
+* Dell Laptop 5379 2in1	(8th Gen i7-8550U/8GB/1TB/13.3" Full HD touch with Truelife & IR Camera/Intel® HD Graphics 520/Win 10 + MS Off H&S 2016	1 Year Premium CC	Silver)	Coming Soon
+* Dell Laptop 7373 2in1	(8th Gen i5-8250/8GB/256 SSD/13.3" Full HD touch with Truelife & IR Camera	Intel® HD Graphics 520	15 Month	Win 10 + MS Off H&S 2016/Premium CC	Silver)	Coming Soon
+* Dell Laptop 7373 2in1	(8th Gen i7-8550/8GB/512 SSD/13.3" Full HD touch with Truelife & IR Camera/Intel® HD Graphics 520	15 Month	Win 10 + MS Off H&S 2016/Premium CC	Silver)	Coming Soon
+
+
+                                                7000 Series & Gaming
+
+ Dell Laptop 7548	(i7,5500U-5th Gen/16GB/256GB SSD/15.6"Ultra HD Touch IPS/AMD Radeon™ R7 M270 4GB DDR3/Win 8.1/Pro CC	Silver)		75000
+
+ Dell Laptop 7548	(i7,5500U-5th Gen/16GB/1TB/15.6" Ultra HD Touch IPS/AMD Radeon™ R7 M270 4GB DDR3/Win 8.1/Pro CC	Silver)		75000
+
+ Dell Laptop 7560	(7th Gen i5-7200U/8GB/1TB/15.6-inch Full HD IPS Truelife & Infinity Display/NVIDIA® GeForce® GTX 940MX with 4GB  GDDR5 /Win 10 + MS Off H&S 2016/Pro CC	Dino Gold)	69000
+
+* Dell Laptop 7570	(8th Gen i5-8250/8GB/1TB + 128GB SSD/15.6-inch FHD (1920 x 1080) Anti-Glare/NVIDIA® GeForce® GTX 1050 with 4GB GDDR5/Win 10 + MS Off H&S 2016/Pro CC	Platinum Silver)	Coming Soon
+
+* Dell Laptop 7570	(8th Gen i7-8550/8GB/1TB + 256GB SSD/15.6-inch FHD (1920 x 1080) Anti-Glare/NVIDIA® GeForce® GTX 1050 with 4GB GDDR5/Win 10 + MS Off H&S 2016/Pro CC	Platinum Silver)	Coming Soon
+
+ Dell Laptop 5577	(i5-7300HQ 7th Gen/8GB/1TB-8GB SSD/15.6-inch FHD (1920 x 1080) Anti-Glare/NVIDIA® GeForce® GTX 1050 with 4GB GDDR5/Win 10 + MS Off H&S 2016/Pro CC	Black & Bullet Hole)	73000
+ Dell Laptop 5577	(i7-7700HQ 7th Gen/8GB/1TB + 128GB SSD/15.6-inch FHD (1920 x 1080) Anti-Glare/NVIDIA® GeForce® GTX 1050 with 4GB GDDR5/Win 10 + MS Off H&S 2016/Pro CC	Black & Bullet Hole)	80000
+ Dell Laptop 7559 Gaming	(i5-6300HQ 6th Gen/8 GB/1TB Hybrid/15.6-inch FHD (1920 x 1080) Anti-Glare/NVIDIA® GeForce® GTX 960M 4GB GDDR5/Win 10 + MS Off H&S 2016/Pro CC	Black)	80000
+ Dell Laptop 7559 Gaming	(i7-6700HQ 6th Gen/8 GB/1TB Hybrid/15.6-inch FHD (1920 x 1080) Anti-Glare/NVIDIA® GeForce® GTX 960M 4GB GDDR5/Win 10/Pro 	Black)	90000
+ Dell Laptop 7559 Gaming	(i7-6700HQ 6th Gen/8 GB/1TB Hybrid/15.6-inch FHD (1920 x 1080) Anti-Glare/NVIDIA® GeForce® GTX 960M 4GB GDDR5/Win 10 + MS Off H&S 2016/Pro CC	Black)	90000
+ Dell Laptop 7559 Gaming	(i7-6700HQ 6th Gen/16 GB/128 GB SSD+1 TB HDD/15.6" 4K Ultra HD IPS Touch with Truelife/NVIDIA® GeForce® GTX 960M 4GB GDDR5/Win 10 + MS Off H&S 2016/Pro CC	Black)	112000
+ Dell Laptop 7567 Gaming	(i5-7300HQ 7th Gen/8GB/1TB-8GB SSD/15.6-inch FHD (1920 x 1080) Anti-Glare/NVIDIA® GeForce® GTX 1050 with 4GB GDDR5/Win 10 + MS Off H&S 2016/Pro CC Black& Red)	79000
+ Dell Laptop 7567 Gaming	(i7-7700HQ 7th Gen/8GB/1TB-8GB SSD/15.6-inch FHD (1920 x 1080) Anti-Glare/NVIDIA® GeForce® GTX 1050 with 4GB GDDR5/Win 10 + MS Off H&S 2016/Pro CC Black)	89000
+
+                                                  XPS & ALIENWARE
+XPS 9360	i5-7200U	8GB	256GB SSD	No	13.3 inch FHD AG (1920 x 1080) Infinity Edge	Intel(R) HD Graphics 520	12 Month	Win 10 + MS Off H&S 2016	1 Year Pro CC	Silver	A560031SIN9	105000
+XPS 9360	i7-7560U	8GB	256GB SSD	No	13.3 inch QHD+ (3200 x 1800) Infinity Edge touch display	Intel(R) HD Graphics 520	12 Month	Win 10 + MS Off H&S 2016	1 Year Pro CC	Silver	A560032SIN9	135000
+Alienware 14Z	Core i7, 4700	8 GB	1 TB HDD + 80 GB SSD	DVDRW	14" IPS Anti Glare	2GB NVIDIA GTX 765M	12 Month	Win 8.1	1 Year Pro CC	Silver		119000
+Alienware 15 R3	i7-7700HQ	8GB	1TB+256GB SSD	No	15.6" FHD (1920 x 1080) 120Hz TN+WVA Display - G SYNC 	Nvidia GTX 1060 6 GB GPU	12 Month	Win 10 + MS Off H&S 2016	1 Year Pro CC	Black	A569951SIN9	162000
+Alienware 15 R3	i7-7700HQ	16GB	1TB+256GB SSD	No	15.6" FHD (1920 x 1080) 120Hz TN+WVA Display - G SYNC 	Nvidia GTX 1070 8 GB GPU	12 Month	Win 10 + MS Off H&S 2016	1 Year Pro CC	Black	A569952SIN9	205000

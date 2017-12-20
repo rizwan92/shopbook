@@ -19,7 +19,7 @@
   margin: 5px;
   font-family: 'Comfortaa', cursive;
   border-radius: 5px;
-  box-shadow: 8px 12px 30px #b3b3b3;
+  /*box-shadow: 8px 12px 30px #b3b3b3;*/
 background-color: #fdfefe;
 
 }
@@ -31,11 +31,16 @@ background-color: #fdfefe;
 .productdetail{
   display: flex;
   flex: 1;
-  justify-content:space-between;
+  flex-flow: column;
+  justify-content: center;
+}
+.productdetail p{
+  margin: 0;
+  padding: 0;
 }
 .productprice{
   color: black;
-  font-weight: bold;
+  color: green;
 }
 .producttax{
   color: black;
@@ -43,7 +48,6 @@ background-color: #fdfefe;
 }
 .productdiscount{
   color: black;
-  font-weight: bold;
 
 }
 .productstock{
@@ -58,7 +62,13 @@ background-color: #fdfefe;
   padding: 2px;
   color: black;
 }
-@media only screen and (max-width: 750px) {
+.stepni b{
+    font-size: 1.7rem;
+   padding: 5px;
+letter-spacing: normal;
+font-family: sans-serif;
+}
+/*@media only screen and (max-width: 750px) {
   .productcontainer {
     display: flex;
     flex: 1;
@@ -67,25 +77,36 @@ background-color: #fdfefe;
     margin: 5px;
     font-family: 'Comfortaa', cursive;
     border-radius: 5px;
-    box-shadow: 8px 12px 30px #b3b3b3;
     background-color: #fdfefe;
   }
   .productimg{
     border-radius:50%;
-    width: 150px;
-    height: 150px;
+    width: 130px;
+    height: 130px;
   }
   .stepni{
-    margin: 5px;
     display: flex;
     flex-flow: column;
     flex: 1;
     width: 100%;
   }
+  .stepni b{
+      font-size: 1.7rem;
+     padding: 5px;
+     letter-spacing: normal;
+     font-family: sans-serif;
+  }
   .productdetail{
     display: flex;
     flex-flow: column;
-    flex: 1;
+    justify-content: center;
+    padding-left: 5px;
+  }
+  .productdetail p{
+    margin: 0;
+    padding: 0;
   }
 
-}
+}*/
+
+/*====================================hvbhjb=================================*/

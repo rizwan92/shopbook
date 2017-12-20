@@ -1,0 +1,14 @@
+.main-carousel{
+  border-style: groove !important;
+  box-sizing: border-box!important;
+}
+.carousel-cell {
+  height: 240px;
+  width: 300px!important;
+  margin-right: 10px!important;
+  border-style: groove!important;
+}
+.flickity-prev-next-button:focus {
+  outline: none!important;
+  box-shadow: 0 0 0 5px #09F!important;
+}

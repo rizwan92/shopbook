@@ -54,7 +54,6 @@ input::-webkit-inner-spin-button {
 }
 .mainlayouttwo{
   flex:2;
-  flex-wrap: wrap;
 }
 .mainlayoutthree{
   flex:0.5;

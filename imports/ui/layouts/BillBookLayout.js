@@ -46,7 +46,7 @@ export default class BillBookLayout  extends Component {
   }
   render(){
     return(
-      <div  style={{  height: '100%'}}>
+      <div  style={{height: '100%'}}>
              <div>
             <Header name="BILLBOOK"/>
             <div className="container-fluid">

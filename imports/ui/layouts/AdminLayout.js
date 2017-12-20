@@ -6,6 +6,7 @@ import ShopDetail from '../components/ShopDetail';
 import Modal from '../components/Modal';
 import AddProduct from '../components/AddProduct';
 import ProductCard from '../components/ProductCard';
+import ProductCard1 from '../components/ProductCard1';
 import {Tracker} from 'meteor/tracker';
 import {ProductMasterApi} from '../../api/productMaster';
 
@@ -100,11 +101,25 @@ class AdminLayout extends Component {
           </div>
 
 
+          <div className="main-carousel" data-flickity='{ "cellAlign": "center", "contain": true }'>
+            {
+              this.state.products.map((product,i)=>{
+                return(
+                  <div className="carousel-cell" key={i}>
+                  dvdv
+                  </div>
+                )
+              })
+            }
+          </div>
+
+
+
           <div className="card">
             {
               this.state.products.map((product,i)=>{
                 return(
-                  <ProductCard   product={product} isAdmin={true}/>
+                  <ProductCard   product={product} isAdmin={true} key={i}/>
                 )
               })
             }
