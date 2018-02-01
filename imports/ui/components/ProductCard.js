@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './ProductCard.css';
 import { NavLink,withRouter } from 'react-router-dom';
-
+import moment from 'moment';
 export default class ProductCard  extends Component {
   constructor() {
     super();
@@ -38,6 +38,7 @@ export default class ProductCard  extends Component {
             <div className="productdetail">
             <p className="producttax">tax {this.props.product.tax ? this.props.product.tax : 0} %</p>
             <p className="productstock">stock {this.props.product.stock}</p>
+            <p className="productstock">stock {moment(this.props.product.createdAt).fromNow()}</p>
             </div>
             </div>
           </div>
